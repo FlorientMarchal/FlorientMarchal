@@ -8,13 +8,13 @@ J'aime les statistiques, la science des données et construire des outils web qu
 
 ## 🚀 Projets
 
-| Projet | Description | |
-|---|---|---|
-| 📚 **[revision](https://github.com/FlorientMarchal/revision)** | Site de révision du M1 : fiches, flashcards, QCM, annales corrigées et TP R / Python / D3 exécutables dans le navigateur. | [**Voir le site →**](https://florientmarchal.github.io/revision/) |
-| 🎰 **[M1AgenticCoding](https://github.com/Master-MIASHS/M1AgenticCoding)** | Projet collectif de la promo (groupe 4, lobby des jeux) : issues, pull requests et revues de code. | |
-| 🤖 **[PairIA](https://github.com/FlorientMarchal/PairIA)** | Projet de stage : boutique en ligne fictive avec un chatbot intégré. | |
-| 🌱 **[Future-Agriculteur](https://github.com/BonjourP166/Future-Agriculteur)** | Gestion de données d'un calendrier de plantation. | |
-| 🗂️ **[Orga](https://github.com/Nina253/Orga)** | Projet d'équipe en PHP. | |
+| Projet | Description |
+|---|---|
+| 📚 **[revision](https://github.com/FlorientMarchal/revision)** | Site de révision du M1 : fiches, flashcards, QCM, annales corrigées et TP R / Python / D3 exécutables dans le navigateur. [**Voir le site →**](https://florientmarchal.github.io/revision/) |
+| 🎰 **[M1AgenticCoding](https://github.com/Master-MIASHS/M1AgenticCoding)** | Projet collectif de la promo (groupe 4, lobby des jeux) : issues, pull requests et revues de code. |
+| 🤖 **[PairIA](https://github.com/FlorientMarchal/PairIA)** | Projet de stage : boutique en ligne fictive avec un chatbot intégré. |
+| 🌱 **[Future-Agriculteur](https://github.com/BonjourP166/Future-Agriculteur)** | Gestion de données d'un calendrier de plantation. |
+| 🗂️ **[Orga](https://github.com/Nina253/Orga)** | Projet d'équipe en PHP. |
 
 ## 🛠️ Outils
 
@@ -35,6 +35,3 @@ J'aime les statistiques, la science des données et construire des outils web qu
 ![PHP](https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
 
-## 📈 Activité
-
-![Statistiques GitHub](https://github-readme-stats.vercel.app/api?username=FlorientMarchal&show_icons=true&hide_border=true&locale=fr)
