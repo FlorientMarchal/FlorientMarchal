@@ -1,37 +1,24 @@
-# Bonjour, je suis Florient 👋
+<p align="center">
+  <img src="assets/header.svg" width="100%" alt="Florient Marchal, M1 MIASHS à Paul-Valéry Montpellier 3 : statistiques, science des données et outils web">
+</p>
 
-Étudiant en **M1 MIASHS** (Mathématiques et informatique appliquées aux sciences humaines et sociales) à l'Université Paul-Valéry Montpellier 3.
-J'aime les statistiques, la science des données et construire des outils web qui servent vraiment.
+<p align="center">
+  <a href="https://www.linkedin.com/in/florient-marchal-7247a92b0">LinkedIn</a>
+  &nbsp;·&nbsp;
+  <a href="https://florientmarchal.github.io/revision/">Mes révisions</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/FlorientMarchal?tab=repositories">Mes dépôts</a>
+</p>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Florient_Marchal-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/florient-marchal-7247a92b0)
-![Montpellier](https://img.shields.io/badge/📍-Montpellier-555)
+<a href="https://florientmarchal.github.io/revision/">
+  <img src="assets/revision.svg" width="100%" alt="Mes révisions : site de révision du M1 MIASHS, avec fiches, flashcards, QCM, annales corrigées et TP exécutables dans le navigateur">
+</a>
 
-## 🚀 Projets
+<p>
+  <a href="https://github.com/Master-MIASHS/M1AgenticCoding"><img src="assets/agentic.svg" width="49%" alt="Casino Fantôme : simulateur de casino fictif codé par des agents IA, projet de promo"></a>
+  <a href="https://github.com/FlorientMarchal/PairIA"><img src="assets/pairia.svg" width="49%" alt="PairIA : boutique de chaussures en ligne avec un assistant IA local, projet de stage"></a>
+  <a href="https://github.com/BonjourP166/Future-Agriculteur"><img src="assets/agri.svg" width="49%" alt="Future-Agriculteur : calendrier agricole intelligent"></a>
+  <a href="https://github.com/Nina253/Orga"><img src="assets/orga.svg" width="49%" alt="Orga+ : plateforme d'organisation et de bien-être pour étudiants"></a>
+</p>
 
-| Projet | Description |
-|---|---|
-| 📚 **[revision](https://github.com/FlorientMarchal/revision)** | Site de révision du M1 : fiches, flashcards, QCM, annales corrigées et TP R / Python / D3 exécutables dans le navigateur. [**Voir le site →**](https://florientmarchal.github.io/revision/) |
-| 🎰 **[M1AgenticCoding](https://github.com/Master-MIASHS/M1AgenticCoding)** | Projet collectif de la promo (groupe 4, lobby des jeux) : issues, pull requests et revues de code. |
-| 🤖 **[PairIA](https://github.com/FlorientMarchal/PairIA)** | Projet de stage : boutique en ligne fictive avec un chatbot intégré. |
-| 🌱 **[Future-Agriculteur](https://github.com/BonjourP166/Future-Agriculteur)** | Gestion de données d'un calendrier de plantation. |
-| 🗂️ **[Orga](https://github.com/Nina253/Orga)** | Projet d'équipe en PHP. |
-
-## 🛠️ Outils
-
-**Données et statistiques**
-
-![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white)
-![NoSQL](https://img.shields.io/badge/CouchDB_·_ArangoDB-E42528?logo=apachecouchdb&logoColor=white)
-
-**Web**
-
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![Svelte](https://img.shields.io/badge/Svelte-FF3E00?logo=svelte&logoColor=white)
-![D3](https://img.shields.io/badge/D3.js-F9A03C?logo=d3dotjs&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
-
+<img src="assets/tools.svg" width="100%" alt="Outils : R, Python, Pandas, NumPy, Jupyter, SQL, CouchDB, ArangoDB, JavaScript, Svelte, D3.js, PHP, Vite, Git">

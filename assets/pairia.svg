@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="590" height="250" viewBox="0 0 590 250" role="img" aria-label="PairIA : projet de stage, e-commerce avec chatbot IA local">
+<style>
+.mono{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace} .serif{font-family:Georgia, 'Iowan Old Style', 'Times New Roman', serif} .sans{font-family:-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif}
+.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .5s cubic-bezier(.3,1.45,.5,1) forwards}
+.fade{opacity:0; animation:fade .6s ease forwards}
+.draw{stroke-dasharray:1000; stroke-dashoffset:1000; animation:draw 1.4s cubic-bezier(.55,.1,.35,1) forwards}
+@keyframes pop{from{opacity:0; transform:scale(.2)} to{opacity:1; transform:scale(1)}}
+@keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes blink{50%{opacity:0}}
+@keyframes nudge{0%,70%,100%{transform:translateX(0)} 85%{transform:translateX(5px)}}
+@keyframes dot{0%,60%,100%{opacity:.25} 30%{opacity:1}}</style>
+<defs><clipPath id="k"><rect x="1" y="1" width="588" height="248" rx="14"/></clipPath><pattern id="fg" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#e8edf5"/></pattern></defs>
+<rect x="1" y="5" width="588" height="244" rx="14" fill="#c9d2de" opacity=".45"/>
+<rect x="1" y="1" width="588" height="244" rx="14" fill="#ffffff" stroke="#d3d9e2"/>
+<rect x="1" y="1" width="7" height="250" fill="#1f4fb5" clip-path="url(#k)"/>
+<rect x="34" y="30" width="84" height="84" rx="12" fill="#f6f8fb" stroke="#d3d9e2"/>
+<rect x="35" y="31" width="82" height="82" rx="11" fill="url(#fg)"/>
+<g transform="translate(34 30)"><path d="M14 20h46a8 8 0 0 1 8 8v20a8 8 0 0 1-8 8H34l-12 10v-10h-8a8 8 0 0 1-8-8V28a8 8 0 0 1 8-8z"
+fill="#e8eef9" stroke="#1f4fb5" stroke-width="2.5"/>
+<g fill="#1f4fb5"><circle cx="26" cy="38" r="4" style="animation:dot 1.2s infinite"/>
+<circle cx="38" cy="38" r="4" style="animation:dot 1.2s .2s infinite"/><circle cx="50" cy="38" r="4" style="animation:dot 1.2s .4s infinite"/></g></g>
+<text x="140" y="54" class="mono fade" font-size="12" letter-spacing="2" fill="#525d6f">PROJET DE STAGE</text>
+<text x="139" y="92" class="serif fade" style="animation-delay:.1s" font-size="30" font-weight="700" fill="#172033">PairIA</text>
+<text x="140" y="128" class="sans fade" style="animation-delay:.2s" font-size="16" fill="#2d3749">Une boutique de chaussures en ligne avec un</text>
+<text x="140" y="152" class="sans fade" style="animation-delay:.2s" font-size="16" fill="#2d3749">assistant IA open source qui tourne en local.</text>
+<g class="pop" style="animation-delay:0.40s"><rect x="34" y="192" width="80" height="30" rx="15" fill="#ffffff" stroke="#d3d9e2"/><circle cx="50" cy="207" r="4.5" fill="#3776ab"/><text x="62" y="211.5" class="mono" font-size="12" fill="#2d3749">Python</text></g>
+<g class="pop" style="animation-delay:0.48s"><rect x="121.92" y="192" width="58" height="30" rx="15" fill="#ffffff" stroke="#d3d9e2"/><circle cx="137.92000000000002" cy="207" r="4.5" fill="#777bb4"/><text x="149.92000000000002" y="211.5" class="mono" font-size="12" fill="#2d3749">PHP</text></g>
+<g class="pop" style="animation-delay:0.56s"><rect x="187.88" y="192" width="102" height="30" rx="15" fill="#ffffff" stroke="#d3d9e2"/><circle cx="203.88" cy="207" r="4.5" fill="#1f4fb5"/><text x="215.88" y="211.5" class="mono" font-size="12" fill="#2d3749">IA locale</text></g>
+<g style="animation:nudge 2.4s ease-in-out infinite"><text x="556" y="212" text-anchor="end" class="sans" font-size="16" font-weight="600" fill="#1f4fb5">Ouvrir →</text></g>
+</svg>
