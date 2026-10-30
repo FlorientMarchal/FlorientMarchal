@@ -1,45 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="Florient Marchal, M1 MIASHS : statistiques, science des données et outils web">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-label="Florient Marchal, étudiant en M1 MIASHS : statistiques, IA et web">
 <style>
-.mono{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace} .serif{font-family:Georgia, 'Iowan Old Style', 'Times New Roman', serif} .sans{font-family:-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif}
-.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .5s cubic-bezier(.3,1.45,.5,1) forwards}
-.fade{opacity:0; animation:fade .6s ease forwards}
-.draw{stroke-dasharray:1000; stroke-dashoffset:1000; animation:draw 1.4s cubic-bezier(.55,.1,.35,1) forwards}
-@keyframes pop{from{opacity:0; transform:scale(.2)} to{opacity:1; transform:scale(1)}}
-@keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+.s{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif} .m{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace}
+.in{opacity:0; animation:in .7s cubic-bezier(.2,.75,.2,1) forwards}
+.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .6s cubic-bezier(.3,1.45,.5,1) forwards}
+.left{opacity:0; animation:left .8s cubic-bezier(.2,.75,.2,1) forwards}
+.draw{stroke-dasharray:1200; stroke-dashoffset:1200; animation:draw 2s cubic-bezier(.55,.1,.35,1) forwards}
+.grow{transform-box:fill-box; transform-origin:bottom; transform:scaleY(0); animation:grow .8s cubic-bezier(.2,.75,.2,1) forwards}
+@keyframes in{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+@keyframes left{from{opacity:0; transform:translateX(-30px)} to{opacity:1; transform:none}}
+@keyframes pop{from{opacity:0; transform:scale(.3)} to{opacity:1; transform:scale(1)}}
 @keyframes draw{to{stroke-dashoffset:0}}
-@keyframes blink{50%{opacity:0}}
-@keyframes nudge{0%,70%,100%{transform:translateX(0)} 85%{transform:translateX(5px)}}
-</style>
-<defs><pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#dfe5ec" stroke-width="1"/></pattern><clipPath id="gc"><rect x="0" y="0" width="1200" height="400" rx="16"/></clipPath></defs><g clip-path="url(#gc)"><rect width="1200" height="400" fill="#eef1f4"/><rect width="1200" height="400" fill="url(#g)"/></g>
-<line x1="64" y1="0" x2="64" y2="400" stroke="#e3786e" stroke-width="2"/>
-<text x="100" y="82" class="mono fade" font-size="14" letter-spacing="3" fill="#525d6f">M1 MIASHS · PAUL-VALÉRY MONTPELLIER 3 · 2026-2027</text>
-<text x="98" y="160" class="serif fade" style="animation-delay:.15s" font-size="68" font-weight="700" fill="#172033" letter-spacing="-1">Florient Marchal</text>
-<path class="draw" style="animation-delay:.6s" d="M102 182 C 210 172, 360 190, 470 178 S 600 174, 640 180" fill="none" stroke="#b83226" stroke-width="4" stroke-linecap="round"/>
-<text x="100" y="230" class="sans fade" style="animation-delay:.35s" font-size="22" fill="#2d3749">Statistiques, science des données et outils web.</text>
-<g class="fade" style="animation-delay:.6s"><rect x="100" y="262" width="560" height="54" rx="10" fill="#172033"/><circle cx="120" cy="289" r="4" fill="#e3786e"/><text x="136" y="295" class="mono" font-size="18" fill="#8fb0f0">&gt;</text></g>
-<defs><clipPath id="type"><rect x="158" y="262" width="0" height="54"><animate attributeName="width" from="0" to="329" begin="1.1s" dur="2.2s" fill="freeze"/></rect></clipPath></defs>
-<text x="158" y="295" class="mono" font-size="18" fill="#e8eef9" clip-path="url(#type)">lm(curiosité ~ données + code)</text>
-<rect x="158" y="279" width="10" height="21" fill="#8fb0f0" style="animation:blink 1s steps(1) infinite"><animate attributeName="x" from="158" to="487" begin="1.1s" dur="2.2s" fill="freeze"/></rect>
-<text x="104" y="348" class="mono fade" style="animation-delay:3.5s" font-size="15" fill="#16703d">R² = 0,97 · p &lt; 0,001 · résidus bien sages ✓</text>
-<g class="fade" style="animation-delay:.3s"><rect x="770" y="50" width="380" height="308" rx="14" fill="#c9d2de" opacity=".5"/><rect x="770" y="46" width="380" height="308" rx="14" fill="#ffffff" stroke="#d3d9e2"/><text x="792" y="78" class="mono" font-size="12" letter-spacing="2" fill="#525d6f">FIG. 1 · MOINDRES CARRÉS</text></g>
-<g class="fade" style="animation-delay:.5s" stroke="#2d3749" stroke-width="1.5" fill="none"><path d="M812 318H1124M812 318V84"/><path d="M1118 313L1126 318L1118 323M807 90L812 82L817 90"/></g>
-<text x="1112" y="340" class="serif fade" style="animation-delay:.5s" font-size="16" font-style="italic" fill="#2d3749">x</text>
-<text x="790" y="96" class="serif fade" style="animation-delay:.5s" font-size="16" font-style="italic" fill="#2d3749">y</text>
-<circle cx="840" cy="295" r="6" fill="#1f4fb5" class="pop" style="animation-delay:0.70s"/>
-<line x1="863" y1="259" x2="863" y2="269" stroke="#b83226" stroke-width="1.5" stroke-dasharray="3 3" class="fade" style="animation-delay:3.0s"/>
-<circle cx="863" cy="259" r="6" fill="#1f4fb5" class="pop" style="animation-delay:0.79s"/>
-<circle cx="886" cy="263" r="6" fill="#1f4fb5" class="pop" style="animation-delay:0.88s"/>
-<line x1="909" y1="227" x2="909" y2="241" stroke="#b83226" stroke-width="1.5" stroke-dasharray="3 3" class="fade" style="animation-delay:3.0s"/>
-<circle cx="909" cy="227" r="6" fill="#1f4fb5" class="pop" style="animation-delay:0.97s"/>
-<circle cx="932" cy="232" r="6" fill="#1f4fb5" class="pop" style="animation-delay:1.06s"/>
-<circle cx="955" cy="227" r="6" fill="#b83226" class="pop" style="animation-delay:1.15s"/>
-<circle cx="978" cy="189" r="6" fill="#1f4fb5" class="pop" style="animation-delay:1.24s"/>
-<circle cx="1001" cy="188" r="6" fill="#1f4fb5" class="pop" style="animation-delay:1.33s"/>
-<line x1="1024" y1="157" x2="1024" y2="169" stroke="#b83226" stroke-width="1.5" stroke-dasharray="3 3" class="fade" style="animation-delay:3.0s"/>
-<circle cx="1024" cy="157" r="6" fill="#1f4fb5" class="pop" style="animation-delay:1.42s"/>
-<circle cx="1047" cy="165" r="6" fill="#b83226" class="pop" style="animation-delay:1.51s"/>
-<circle cx="1070" cy="135" r="6" fill="#1f4fb5" class="pop" style="animation-delay:1.60s"/>
-<circle cx="1093" cy="134" r="6" fill="#1f4fb5" class="pop" style="animation-delay:1.69s"/>
-<line x1="826" y1="292" x2="1112" y2="115" stroke="#172033" stroke-width="2.5" stroke-linecap="round" class="draw" style="animation-delay:1.9s"/>
-<text x="840" y="128" class="serif fade" style="animation-delay:2.8s" font-size="20" font-style="italic" fill="#172033">y = β₀ + β₁x + ε</text>
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{from{transform:scaleY(1)} to{transform:scaleY(.72)}}
+@keyframes marquee{to{transform:translateX(-1300px)}}</style>
+<rect width="1200" height="480" fill="#f2ede3"/>
+<text x="48" y="48" class="m in" font-size="13" letter-spacing="3" fill="#141414">FLORIENT MARCHAL — PROFIL</text>
+<text x="1152" y="48" text-anchor="end" class="m in" font-size="13" letter-spacing="3" fill="#141414">M1 MIASHS · MONTPELLIER · 2026</text>
+<line x1="48" y1="64" x2="1152" y2="64" stroke="#141414" stroke-width="2" class="in"/>
+<circle cx="985" cy="232" r="138" fill="#ff4d1f" class="pop" style="animation-delay:.2s"/>
+<rect x="770" y="250" width="130" height="130" fill="#2442ff" class="left" style="animation-delay:.45s"/>
+<rect x="1060" y="96" width="92" height="46" fill="#ffc21a" class="pop" style="animation-delay:.6s"/>
+<rect x="915" y="272" width="26" height="120" fill="#141414" class="grow" style="animation:grow .8s cubic-bezier(.2,.75,.2,1) 0.80s forwards, breathe 2.00s ease-in-out 1.80s infinite alternate"/>
+<rect x="955" y="202" width="26" height="190" fill="#141414" class="grow" style="animation:grow .8s cubic-bezier(.2,.75,.2,1) 0.92s forwards, breathe 2.35s ease-in-out 1.92s infinite alternate"/>
+<rect x="995" y="242" width="26" height="150" fill="#141414" class="grow" style="animation:grow .8s cubic-bezier(.2,.75,.2,1) 1.04s forwards, breathe 2.70s ease-in-out 2.04s infinite alternate"/>
+<rect x="1035" y="162" width="26" height="230" fill="#141414" class="grow" style="animation:grow .8s cubic-bezier(.2,.75,.2,1) 1.16s forwards, breathe 3.05s ease-in-out 2.16s infinite alternate"/>
+<rect x="1075" y="217" width="26" height="175" fill="#141414" class="grow" style="animation:grow .8s cubic-bezier(.2,.75,.2,1) 1.28s forwards, breathe 3.40s ease-in-out 2.28s infinite alternate"/>
+<line x1="890" y1="392" x2="1130" y2="392" stroke="#141414" stroke-width="3" class="in" style="animation-delay:.7s"/>
+<g style="transform-origin:985px 232px; animation:spin 14s linear infinite"><circle cx="985" cy="84" r="8" fill="#141414"/></g>
+<text x="42" y="196" class="s in" font-size="138" font-weight="800" letter-spacing="-5" textLength="650" lengthAdjust="spacingAndGlyphs" fill="#141414" style="animation-delay:.1s">FLORIENT</text>
+<text x="42" y="320" class="s in" font-size="138" font-weight="800" letter-spacing="-5" textLength="620" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#141414" stroke-width="2.5" style="animation-delay:.25s">MARCHAL</text>
+<text x="48" y="362" class="s in" font-size="20" fill="#141414" style="animation-delay:.5s">Étudiant en M1 MIASHS. Statistiques, IA et web :</text>
+<text x="48" y="390" class="s in" font-size="20" font-weight="700" fill="#141414" style="animation-delay:.6s">j'aime transformer des données en outils.</text>
+<rect x="0" y="420" width="1200" height="60" fill="#141414"/>
+<g style="animation:marquee 22s linear infinite"><text x="0" y="457" class="m" font-size="19" letter-spacing="2" fill="#f2ede3" textLength="1300" lengthAdjust="spacing">STATISTIQUES ● SCIENCE DES DONNÉES ● IA LOCALE ● VISUALISATION ● R ● PYTHON ● PHP ● REACT ● </text><text x="1300" y="457" class="m" font-size="19" letter-spacing="2" fill="#f2ede3" textLength="1300" lengthAdjust="spacing">STATISTIQUES ● SCIENCE DES DONNÉES ● IA LOCALE ● VISUALISATION ● R ● PYTHON ● PHP ● REACT ● </text></g>
 </svg>

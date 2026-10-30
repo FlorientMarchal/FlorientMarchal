@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-label="03 Future-Agriculteur : calendrier agricole intelligent avec prévisions de températures">
+<style>
+.s{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif} .m{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace}
+.in{opacity:0; animation:in .7s cubic-bezier(.2,.75,.2,1) forwards}
+.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .6s cubic-bezier(.3,1.45,.5,1) forwards}
+.left{opacity:0; animation:left .8s cubic-bezier(.2,.75,.2,1) forwards}
+.draw{stroke-dasharray:1200; stroke-dashoffset:1200; animation:draw 2s cubic-bezier(.55,.1,.35,1) forwards}
+.grow{transform-box:fill-box; transform-origin:bottom; transform:scaleY(0); animation:grow .8s cubic-bezier(.2,.75,.2,1) forwards}
+@keyframes in{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+@keyframes left{from{opacity:0; transform:translateX(-30px)} to{opacity:1; transform:none}}
+@keyframes pop{from{opacity:0; transform:scale(.3)} to{opacity:1; transform:scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{from{transform:scaleY(1)} to{transform:scaleY(.72)}}
+@keyframes pulse{50%{transform:scale(1.12)}}</style>
+<rect width="1200" height="500" fill="#f2ede3"/>
+<rect width="380" height="500" fill="#ffc21a"/>
+<text x="34" y="128" class="s in" font-size="120" font-weight="800" letter-spacing="-4" fill="#141414">03</text>
+<g><circle cx="300" cy="190" r="40" fill="#ff4d1f" style="transform-box:fill-box; transform-origin:center; animation:pulse 3s ease-in-out infinite"/><path d="M30 330 C 80 250, 120 250, 165 300 S 250 360, 290 280 S 340 200, 360 220" fill="none" stroke="#141414" stroke-width="4" stroke-linecap="round" class="draw" style="animation-delay:.3s"/><line x1="30" y1="462" x2="350" y2="462" stroke="#141414" stroke-width="4"/><g class="grow" style="animation-delay:1.40s"><path d="M80 460V400" stroke="#141414" stroke-width="4"/><path d="M80 410 c-18 0-28-10-28-24 c16 0 28 8 28 24z" fill="#141414"/><path d="M80 422 c16 0 26-10 26-22 c-14 0-26 8-26 22z" fill="#141414"/></g><g class="grow" style="animation-delay:1.65s"><path d="M170 460V370" stroke="#141414" stroke-width="4"/><path d="M170 380 c-18 0-28-10-28-24 c16 0 28 8 28 24z" fill="#141414"/><path d="M170 392 c16 0 26-10 26-22 c-14 0-26 8-26 22z" fill="#141414"/></g><g class="grow" style="animation-delay:1.90s"><path d="M260 460V390" stroke="#141414" stroke-width="4"/><path d="M260 400 c-18 0-28-10-28-24 c16 0 28 8 28 24z" fill="#141414"/><path d="M260 412 c16 0 26-10 26-22 c-14 0-26 8-26 22z" fill="#141414"/></g></g>
+<text x="420" y="64" class="m in" font-size="13" letter-spacing="2.5" fill="#5b554b">PROJET D'ÉQUIPE · SCIENCE DES DONNÉES 4 · 4 ÉTUDIANTS</text>
+<text x="1160" y="64" text-anchor="end" class="m in" font-size="13" letter-spacing="2.5" font-weight="700" fill="#141414">DÉPÔT ↗</text>
+<line x1="420" y1="80" x2="1160" y2="80" stroke="#141414" stroke-width="2" class="in"/>
+<text x="418" y="138" class="s in" font-size="46" font-weight="800" letter-spacing="-1.5" fill="#141414" style="animation-delay:.1s">Future-Agriculteur</text>
+<text x="420" y="178" class="s in" font-size="17" fill="#2a2620" style="animation-delay:.2s">Un calendrier agricole intelligent pour les agriculteurs débutants : on entre un code</text>
+<text x="420" y="204" class="s in" font-size="17" fill="#2a2620" style="animation-delay:.2s">postal, le site recommande quoi cultiver selon le jour, la semaine ou le mois.</text>
+<rect x="420" y="241" width="12" height="12" fill="#ffc21a" class="in" style="animation-delay:.3s"/><text x="442" y="252" class="m in" font-size="12" letter-spacing="3" font-weight="700" fill="#141414" style="animation-delay:.3s">CE QUE FAIT LE PROJET</text>
+<rect x="420" y="276" width="8" height="8" fill="#141414" class="in" style="animation-delay:0.4s"/><text x="442" y="286" class="s in" font-size="17" fill="#141414" style="animation-delay:0.4s">Prévision des températures station par station, à partir des données SYNOP</text>
+<rect x="420" y="307" width="8" height="8" fill="#141414" class="in" style="animation-delay:0.5s"/><text x="442" y="317" class="s in" font-size="17" fill="#141414" style="animation-delay:0.5s">Modèles LSTM et SARIMA entraînés pour plusieurs villes françaises</text>
+<rect x="420" y="338" width="8" height="8" fill="#141414" class="in" style="animation-delay:0.6s"/><text x="442" y="348" class="s in" font-size="17" fill="#141414" style="animation-delay:0.6s">Site PHP et MySQL, avec des pages de visualisation et d'explication des modèles</text>
+<g class="pop" style="animation-delay:0.60s"><rect x="420" y="430" width="77" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="458" y="452" text-anchor="middle" class="m" font-size="13" fill="#141414">Python</text></g><g class="pop" style="animation-delay:0.67s"><rect x="506.8" y="430" width="69" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="541" y="452" text-anchor="middle" class="m" font-size="13" fill="#141414">Keras</text></g><g class="pop" style="animation-delay:0.74s"><rect x="585.8" y="430" width="77" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="624" y="452" text-anchor="middle" class="m" font-size="13" fill="#141414">SARIMA</text></g><g class="pop" style="animation-delay:0.81s"><rect x="672.5999999999999" y="430" width="69" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="707" y="452" text-anchor="middle" class="m" font-size="13" fill="#141414">MySQL</text></g><g class="pop" style="animation-delay:0.88s"><rect x="751.5999999999999" y="430" width="53" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="778" y="452" text-anchor="middle" class="m" font-size="13" fill="#141414">PHP</text></g><g class="pop" style="animation-delay:0.95s"><rect x="814.9999999999999" y="430" width="92" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="861" y="452" text-anchor="middle" class="m" font-size="13" fill="#141414">Chart.js</text></g>
+</svg>
