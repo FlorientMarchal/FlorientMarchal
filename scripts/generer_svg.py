@@ -137,7 +137,7 @@ def projects():
         + die(250, 190, 76, 2, .5, 6)
     css = "@keyframes tumble{0%,70%,100%{transform:rotate(0)} 80%{transform:rotate(-20deg)} 90%{transform:rotate(12deg)}}"
     out["01-casino"] = panel(
-        "01", RED, CREAM, "PROJET DE PROMO M1 · 5 GROUPES · ~25 ÉTUDIANTS", "Casino Fantôme",
+        "01", RED, CREAM, "COURS DE PROGRAMMATION AGENTIQUE · M1 · ~25 ÉTUDIANTS", "Casino Fantôme",
         ["Un simulateur de casino 100 % fictif : 13 jeux à débloquer, niveaux, classement et",
          "boutique. Tout le code est écrit par des agents IA, que la promo pilote et relit."],
         "MA PART · GROUPE 4, APPLICATION",

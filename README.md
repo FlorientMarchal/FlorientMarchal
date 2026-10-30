@@ -6,7 +6,7 @@
   <a href="https://github.com/FlorientMarchal?tab=repositories"><b>Mes dépôts</b></a>
 </p>
 
-<a href="https://github.com/Master-MIASHS/M1AgenticCoding"><img src="assets/01-casino.svg" width="100%" alt="01 Casino Fantôme : simulateur de casino fictif codé par des agents IA. Ma part (groupe 4) : écrans Lobby, Profil, Classement, intégration des 11 interfaces de jeu, 24 pull requests fusionnées"></a>
+<a href="https://github.com/Master-MIASHS/M1AgenticCoding"><img src="assets/01-casino.svg" width="100%" alt="01 Casino Fantôme : simulateur de casino fictif codé par des agents IA, cours de programmation agentique. Ma part (groupe 4) : écrans Lobby, Profil, Classement, intégration des 11 interfaces de jeu, 24 pull requests fusionnées"></a>
 
 <a href="https://github.com/FlorientMarchal/PairIA"><img src="assets/02-pairia.svg" width="100%" alt="02 PairIA : boutique de chaussures en ligne avec un assistant IA local (RAG, CamemBERT, Ollama, CLIP, Whisper), projet de stage"></a>
 
