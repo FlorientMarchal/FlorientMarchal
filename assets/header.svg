@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-label="Florient Marchal, étudiant en M1 MIASHS orienté data science">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-label="Florient Marchal, étudiant en M1 MIASHS entre data science et IA">
 <style>
 .s{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif} .m{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace}
 .in{opacity:0; animation:in .7s cubic-bezier(.2,.75,.2,1) forwards}
 .pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .6s cubic-bezier(.3,1.45,.5,1) forwards}
 .left{opacity:0; animation:left .8s cubic-bezier(.2,.75,.2,1) forwards}
 .draw{stroke-dasharray:1; stroke-dashoffset:1; animation:draw 2s cubic-bezier(.55,.1,.35,1) forwards}
-.grow{transform-box:fill-box; transform-origin:bottom; transform:scaleY(0); animation:grow .8s cubic-bezier(.2,.75,.2,1) forwards}
 @keyframes in{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
 @keyframes left{from{opacity:0; transform:translateX(-30px)} to{opacity:1; transform:none}}
 @keyframes pop{from{opacity:0; transform:scale(.3)} to{opacity:1; transform:scale(1)}}
@@ -14,9 +13,10 @@
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes breathe{from{transform:scaleY(1)} to{transform:scaleY(.8)}}
 @keyframes ring{from{transform:scale(.4); opacity:.9} to{transform:scale(2.2); opacity:0}}
-@keyframes marquee{to{transform:translateX(-1640px)}}</style>
+@keyframes flow{to{stroke-dashoffset:-12}}
+@keyframes marquee{to{transform:translateX(-1782px)}}</style>
 <rect width="1200" height="480" fill="#f2ede3"/>
-<text x="48" y="48" class="m in" font-size="13" letter-spacing="3" fill="#141414">FLORIENT MARCHAL — DATA SCIENCE</text>
+<text x="48" y="48" class="m in" font-size="13" letter-spacing="3" fill="#141414">FLORIENT MARCHAL — DATA SCIENCE &amp; IA</text>
 <text x="1152" y="48" text-anchor="end" class="m in" font-size="13" letter-spacing="3" fill="#141414">M1 MIASHS · MONTPELLIER · 2026</text>
 <line x1="48" y1="64" x2="1152" y2="64" stroke="#141414" stroke-width="2" class="in"/>
 <circle cx="985" cy="232" r="138" fill="#ff4d1f" class="pop" style="animation-delay:.2s"/>
@@ -33,28 +33,23 @@
 <path d="M852 377 L858 376 L864 375 L870 373 L876 370 L882 367 L888 364 L894 359 L900 353 L906 347 L912 339 L918 331 L924 321 L930 310 L936 299 L942 286 L948 274 L954 261 L960 249 L966 237 L972 226 L978 216 L984 209 L990 203 L996 199 L1002 198 L1008 199 L1014 203 L1020 209 L1026 216 L1032 226 L1038 237 L1044 249 L1050 261 L1056 274 L1062 286 L1068 299 L1074 310 L1080 321 L1086 331 L1092 339 L1098 347 L1104 353 L1110 359 L1116 364 L1122 367 L1128 370 L1134 373 L1140 375 L1146 376 L1152 377" pathLength="1" fill="none" stroke="#f2ede3" stroke-width="5" stroke-linecap="round" class="draw" style="animation-delay:1.7s"/>
 <line x1="852" y1="392" x2="1140" y2="392" stroke="#141414" stroke-width="3" class="in" style="animation-delay:.7s"/>
 <rect x="706" y="240" width="136" height="136" fill="#2442ff" class="left" style="animation-delay:.45s"/>
-<circle cx="738" cy="276" r="5" fill="#f2ede3" class="pop" style="animation-delay:0.90s"/>
-<circle cx="752" cy="284" r="5" fill="#f2ede3" class="pop" style="animation-delay:0.95s"/>
-<circle cx="732" cy="292" r="5" fill="#f2ede3" class="pop" style="animation-delay:1.00s"/>
-<circle cx="748" cy="266" r="5" fill="#f2ede3" class="pop" style="animation-delay:1.05s"/>
-<circle cx="760" cy="294" r="5" fill="#f2ede3" class="pop" style="animation-delay:1.10s"/>
-<circle cx="804" cy="298" r="5" fill="#ffc21a" class="pop" style="animation-delay:1.15s"/>
-<circle cx="792" cy="308" r="5" fill="#ffc21a" class="pop" style="animation-delay:1.20s"/>
-<circle cx="812" cy="312" r="5" fill="#ffc21a" class="pop" style="animation-delay:1.25s"/>
-<circle cx="800" cy="286" r="5" fill="#ffc21a" class="pop" style="animation-delay:1.30s"/>
-<circle cx="818" cy="294" r="5" fill="#ffc21a" class="pop" style="animation-delay:1.35s"/>
-<circle cx="756" cy="342" r="5" fill="#141414" class="pop" style="animation-delay:1.40s"/>
-<circle cx="772" cy="346" r="5" fill="#141414" class="pop" style="animation-delay:1.45s"/>
-<circle cx="746" cy="348" r="5" fill="#141414" class="pop" style="animation-delay:1.50s"/>
-<circle cx="762" cy="330" r="5" fill="#141414" class="pop" style="animation-delay:1.55s"/>
-<circle cx="780" cy="336" r="5" fill="#141414" class="pop" style="animation-delay:1.60s"/>
+<path d="M730 270L774 258M730 270L774 290M730 270L774 322M730 270L774 354M730 308L774 258M730 308L774 290M730 308L774 322M730 308L774 354M730 346L774 258M730 346L774 290M730 346L774 322M730 346L774 354M774 258L818 290M774 258L818 326M774 290L818 290M774 290L818 326M774 322L818 290M774 322L818 326M774 354L818 290M774 354L818 326" stroke="#f2ede3" stroke-width="1.4" stroke-dasharray="4 8" fill="none" style="opacity:0; animation:in .6s 1s forwards, flow 1.2s linear infinite"/>
+<circle cx="730" cy="270" r="7" fill="#f2ede3" class="pop" style="animation-delay:0.80s"/>
+<circle cx="730" cy="308" r="7" fill="#f2ede3" class="pop" style="animation-delay:0.86s"/>
+<circle cx="730" cy="346" r="7" fill="#f2ede3" class="pop" style="animation-delay:0.92s"/>
+<circle cx="774" cy="258" r="7" fill="#f2ede3" class="pop" style="animation-delay:0.98s"/>
+<circle cx="774" cy="290" r="7" fill="#f2ede3" class="pop" style="animation-delay:1.04s"/>
+<circle cx="774" cy="322" r="7" fill="#f2ede3" class="pop" style="animation-delay:1.10s"/>
+<circle cx="774" cy="354" r="7" fill="#f2ede3" class="pop" style="animation-delay:1.16s"/>
+<circle cx="818" cy="290" r="7" fill="#ffc21a" class="pop" style="animation-delay:1.22s"/>
+<circle cx="818" cy="326" r="7" fill="#ffc21a" class="pop" style="animation-delay:1.28s"/>
 <rect x="1046" y="92" width="106" height="48" fill="#ffc21a" class="pop" style="animation-delay:.6s"/>
 <text x="1099" y="122" text-anchor="middle" class="m in" font-size="16" font-weight="700" fill="#141414" style="animation-delay:.9s">N(μ,σ²)</text>
 <g style="transform-origin:985px 232px; animation:spin 14s linear infinite"><circle cx="985" cy="84" r="8" fill="#141414"/></g>
 <text x="42" y="196" class="s in" font-size="138" font-weight="800" letter-spacing="-5" textLength="650" lengthAdjust="spacingAndGlyphs" fill="#141414" style="animation-delay:.1s">FLORIENT</text>
 <text x="42" y="320" class="s in" font-size="138" font-weight="800" letter-spacing="-5" textLength="620" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#141414" stroke-width="2.5" style="animation-delay:.25s">MARCHAL</text>
-<text x="48" y="362" class="s in" font-size="20" fill="#141414" style="animation-delay:.5s">Étudiant en M1 MIASHS, orienté data science :</text>
-<text x="48" y="390" class="s in" font-size="20" font-weight="700" fill="#141414" style="animation-delay:.6s">statistiques, machine learning et IA.</text>
+<text x="48" y="362" class="s in" font-size="20" fill="#141414" style="animation-delay:.5s">Étudiant en M1 MIASHS, entre data science et IA :</text>
+<text x="48" y="390" class="s in" font-size="20" font-weight="700" fill="#141414" style="animation-delay:.6s">des données au modèle, et du modèle à l'outil.</text>
 <rect x="0" y="420" width="1200" height="60" fill="#141414"/>
-<g style="animation:marquee 28s linear infinite"><text x="0" y="457" class="m" font-size="19" letter-spacing="2" fill="#f2ede3" textLength="1640" lengthAdjust="spacing" xml:space="preserve">STATISTIQUES ● MACHINE LEARNING ● RÉGRESSION ● ACP ● CLASSIFICATION ● SÉRIES TEMPORELLES ● NLP ● DATAVIZ ● R ● PYTHON ● </text><text x="1640" y="457" class="m" font-size="19" letter-spacing="2" fill="#f2ede3" textLength="1640" lengthAdjust="spacing" xml:space="preserve">STATISTIQUES ● MACHINE LEARNING ● RÉGRESSION ● ACP ● CLASSIFICATION ● SÉRIES TEMPORELLES ● NLP ● DATAVIZ ● R ● PYTHON ● </text></g>
+<g style="animation:marquee 30s linear infinite"><text x="0" y="457" class="m" font-size="19" letter-spacing="2" fill="#f2ede3" textLength="1782" lengthAdjust="spacing" xml:space="preserve">DATA SCIENCE ● MACHINE LEARNING ● DEEP LEARNING ● LLM ● RAG ● AGENTS IA ● NLP ● SÉRIES TEMPORELLES ● ACP ● RÉGRESSION ● R ● PYTHON ● </text><text x="1782" y="457" class="m" font-size="19" letter-spacing="2" fill="#f2ede3" textLength="1782" lengthAdjust="spacing" xml:space="preserve">DATA SCIENCE ● MACHINE LEARNING ● DEEP LEARNING ● LLM ● RAG ● AGENTS IA ● NLP ● SÉRIES TEMPORELLES ● ACP ● RÉGRESSION ● R ● PYTHON ● </text></g>
 </svg>

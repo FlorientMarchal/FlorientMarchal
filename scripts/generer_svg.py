@@ -1,4 +1,4 @@
-"""Génère les SVG du README de profil (style affiche orienté data science).
+"""Génère les SVG du README de profil (style affiche, data science et IA).
 
 Usage : python3 scripts/generer_svg.py assets
 Autres styles conservés : branches design-affiche et design-blueprint.
@@ -19,7 +19,6 @@ CSS = f"""
 .pop{{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .6s cubic-bezier(.3,1.45,.5,1) forwards}}
 .left{{opacity:0; animation:left .8s cubic-bezier(.2,.75,.2,1) forwards}}
 .draw{{stroke-dasharray:1; stroke-dashoffset:1; animation:draw 2s cubic-bezier(.55,.1,.35,1) forwards}}
-.grow{{transform-box:fill-box; transform-origin:bottom; transform:scaleY(0); animation:grow .8s cubic-bezier(.2,.75,.2,1) forwards}}
 @keyframes in{{from{{opacity:0; transform:translateY(10px)}} to{{opacity:1; transform:none}}}}
 @keyframes left{{from{{opacity:0; transform:translateX(-30px)}} to{{opacity:1; transform:none}}}}
 @keyframes pop{{from{{opacity:0; transform:scale(.3)}} to{{opacity:1; transform:scale(1)}}}}
@@ -28,6 +27,7 @@ CSS = f"""
 @keyframes spin{{to{{transform:rotate(360deg)}}}}
 @keyframes breathe{{from{{transform:scaleY(1)}} to{{transform:scaleY(.8)}}}}
 @keyframes ring{{from{{transform:scale(.4); opacity:.9}} to{{transform:scale(2.2); opacity:0}}}}
+@keyframes flow{{to{{stroke-dashoffset:-12}}}}
 """
 
 
@@ -56,10 +56,10 @@ def chips(x, y, items, dark=False, delay=.5, size=13):
 def header():
     W, H = 1200, 480
     b = [f'<rect width="{W}" height="{H}" fill="{CREAM}"/>',
-         f'<text x="48" y="48" class="m in" font-size="13" letter-spacing="3" fill="{INK}">FLORIENT MARCHAL — DATA SCIENCE</text>',
+         f'<text x="48" y="48" class="m in" font-size="13" letter-spacing="3" fill="{INK}">FLORIENT MARCHAL — DATA SCIENCE &amp; IA</text>',
          f'<text x="1152" y="48" text-anchor="end" class="m in" font-size="13" letter-spacing="3" fill="{INK}">M1 MIASHS · MONTPELLIER · 2026</text>',
          f'<line x1="48" y1="64" x2="1152" y2="64" stroke="{INK}" stroke-width="2" class="in"/>']
-    # composition : grand disque, histogramme et densité, nuage k-means, loi normale
+    # statistique : disque, histogramme et densité
     b.append(f'<circle cx="985" cy="232" r="138" fill="{RED}" class="pop" style="animation-delay:.2s"/>')
     base, x0, bw, n = 392, 872, 26, 10
     mu, sd = x0 + n * bw / 2, 52
@@ -74,14 +74,21 @@ def header():
     b.append(f'<path d="{curve}" pathLength="1" fill="none" stroke="{CREAM}" stroke-width="5" stroke-linecap="round" '
              f'class="draw" style="animation-delay:1.7s"/>')
     b.append(f'<line x1="852" y1="{base}" x2="1140" y2="{base}" stroke="{INK}" stroke-width="3" class="in" style="animation-delay:.7s"/>')
+    # IA : petit réseau de neurones dont les liaisons s'animent
     b.append(f'<rect x="706" y="240" width="136" height="136" fill="{BLUE}" class="left" style="animation-delay:.45s"/>')
-    clusters = [(CREAM, 738, 276, [(0, 0), (14, 8), (-6, 16), (10, -10), (22, 18)]),
-                (SUN, 804, 298, [(0, 0), (-12, 10), (8, 14), (-4, -12), (14, -4)]),
-                (INK, 756, 342, [(0, 0), (16, 4), (-10, 6), (6, -12), (24, -6)])]
+    layers = [(730, [270, 308, 346]), (774, [258, 290, 322, 354]), (818, [290, 326])]
+    edges = ""
+    for (xa, ya), (xb, yb) in zip(layers, layers[1:]):
+        for y1 in ya:
+            for y2 in yb:
+                edges += f"M{xa} {y1}L{xb} {y2}"
+    b.append(f'<path d="{edges}" stroke="{CREAM}" stroke-width="1.4" stroke-dasharray="4 8" fill="none" '
+             f'style="opacity:0; animation:in .6s 1s forwards, flow 1.2s linear infinite"/>')
     k = 0
-    for col, cx, cy, pts in clusters:
-        for dx, dy in pts:
-            b.append(f'<circle cx="{cx + dx}" cy="{cy + dy}" r="5" fill="{col}" class="pop" style="animation-delay:{.9 + k * .05:.2f}s"/>')
+    for x, ys in layers:
+        for y in ys:
+            col = SUN if x == 818 else CREAM
+            b.append(f'<circle cx="{x}" cy="{y}" r="7" fill="{col}" class="pop" style="animation-delay:{.8 + k * .06:.2f}s"/>')
             k += 1
     b.append(f'<rect x="1046" y="92" width="106" height="48" fill="{SUN}" class="pop" style="animation-delay:.6s"/>')
     b.append(f'<text x="1099" y="122" text-anchor="middle" class="m in" font-size="16" font-weight="700" fill="{INK}" '
@@ -95,48 +102,55 @@ def header():
              f'textLength="620" lengthAdjust="spacingAndGlyphs" fill="none" stroke="{INK}" stroke-width="2.5" '
              f'style="animation-delay:.25s">MARCHAL</text>')
     b.append(f'<text x="48" y="362" class="s in" font-size="20" fill="{INK}" style="animation-delay:.5s">'
-             'Étudiant en M1 MIASHS, orienté data science :</text>')
+             'Étudiant en M1 MIASHS, entre data science et IA :</text>')
     b.append(f'<text x="48" y="390" class="s in" font-size="20" font-weight="700" fill="{INK}" style="animation-delay:.6s">'
-             'statistiques, machine learning et IA.</text>')
+             'des données au modèle, et du modèle à l\'outil.</text>')
     # bandeau défilant
-    words = ("STATISTIQUES ● MACHINE LEARNING ● RÉGRESSION ● ACP ● CLASSIFICATION ● "
-             "SÉRIES TEMPORELLES ● NLP ● DATAVIZ ● R ● PYTHON ● ")
-    L = 1640
+    words = ("DATA SCIENCE ● MACHINE LEARNING ● DEEP LEARNING ● LLM ● RAG ● AGENTS IA ● NLP ● "
+             "SÉRIES TEMPORELLES ● ACP ● RÉGRESSION ● R ● PYTHON ● ")
+    L = round(len(words) * 13.4)
     b.append(f'<rect x="0" y="420" width="{W}" height="60" fill="{INK}"/>')
-    b.append('<g style="animation:marquee 28s linear infinite">'
+    b.append('<g style="animation:marquee 30s linear infinite">'
              + "".join(f'<text x="{k * L}" y="457" class="m" font-size="19" letter-spacing="2" fill="{CREAM}" '
                        f'textLength="{L}" lengthAdjust="spacing" xml:space="preserve">{words}</text>' for k in range(2))
              + '</g>')
     css = f"@keyframes marquee{{to{{transform:translateX(-{L}px)}}}}"
-    return svg(W, H, "\n".join(b), css, "Florient Marchal, étudiant en M1 MIASHS orienté data science")
+    return svg(W, H, "\n".join(b), css, "Florient Marchal, étudiant en M1 MIASHS entre data science et IA")
 
 
 # ---------------------------------------------------------------- panneaux de projets
-def panel(num, color, num_color, meta, title, desc, label, points, tags, art, art_css="", H=500, alt=""):
-    W, P = 1200, 380
+PANEL = 280   # largeur du bloc de couleur
+TX = 320      # début de la colonne de texte
+
+
+def panel(num, color, num_color, meta, title, desc, label, points, tags, art, art_css="", H=440, alt=""):
+    """Panneau de projet : bloc de couleur (numéro + dessin réduit) à gauche, texte à droite.
+
+    Les dessins sont conçus pour un bloc de 380 × 500 et réduits à l'échelle 0,66."""
+    W = 1200
     b = [f'<rect width="{W}" height="{H}" fill="{CREAM}"/>',
-         f'<rect width="{P}" height="{H}" fill="{color}"/>',
-         f'<text x="34" y="128" class="s in" font-size="120" font-weight="800" letter-spacing="-4" fill="{num_color}">{num}</text>',
-         f'<g>{art}</g>',
-         f'<text x="420" y="64" class="m in" font-size="13" letter-spacing="2.5" fill="{MUTED}">{esc(meta)}</text>',
-         f'<text x="1160" y="64" text-anchor="end" class="m in" font-size="13" letter-spacing="2.5" font-weight="700" fill="{INK}">DÉPÔT ↗</text>',
-         f'<line x1="420" y1="80" x2="1160" y2="80" stroke="{INK}" stroke-width="2" class="in"/>',
-         f'<text x="418" y="138" class="s in" font-size="46" font-weight="800" letter-spacing="-1.5" fill="{INK}" style="animation-delay:.1s">{esc(title)}</text>']
-    y = 178
+         f'<rect width="{PANEL}" height="{H}" fill="{color}"/>',
+         f'<text x="28" y="92" class="s in" font-size="72" font-weight="800" letter-spacing="-3" fill="{num_color}">{num}</text>',
+         f'<g transform="translate(8 {56 if H > 360 else 20}) scale(.66)">{art}</g>',
+         f'<text x="{TX}" y="58" class="m in" font-size="13" letter-spacing="2.5" fill="{MUTED}">{esc(meta)}</text>',
+         f'<text x="1160" y="58" text-anchor="end" class="m in" font-size="13" letter-spacing="2.5" font-weight="700" fill="{INK}">DÉPÔT ↗</text>',
+         f'<line x1="{TX}" y1="74" x2="1160" y2="74" stroke="{INK}" stroke-width="2" class="in"/>',
+         f'<text x="{TX - 2}" y="128" class="s in" font-size="44" font-weight="800" letter-spacing="-1.5" fill="{INK}" style="animation-delay:.1s">{esc(title)}</text>']
+    y = 166
     for ln in desc:
-        b.append(f'<text x="420" y="{y}" class="s in" font-size="17" fill="#2a2620" style="animation-delay:.2s">{esc(ln)}</text>')
+        b.append(f'<text x="{TX}" y="{y}" class="s in" font-size="17" fill="#2a2620" style="animation-delay:.2s">{esc(ln)}</text>')
         y += 26
     if points:
-        y += 22
-        b.append(f'<rect x="420" y="{y - 11}" width="12" height="12" fill="{color}" class="in" style="animation-delay:.3s"/>'
-                 f'<text x="442" y="{y}" class="m in" font-size="12" letter-spacing="3" font-weight="700" fill="{INK}" style="animation-delay:.3s">{label}</text>')
-        y += 34
+        y += 18
+        b.append(f'<rect x="{TX}" y="{y - 11}" width="12" height="12" fill="{color}" class="in" style="animation-delay:.3s"/>'
+                 f'<text x="{TX + 22}" y="{y}" class="m in" font-size="12" letter-spacing="3" font-weight="700" fill="{INK}" style="animation-delay:.3s">{label}</text>')
+        y += 32
         for i, p in enumerate(points):
             d = .4 + i * .1
-            b.append(f'<rect x="420" y="{y - 10}" width="8" height="8" fill="{INK}" class="in" style="animation-delay:{d:.1f}s"/>'
-                     f'<text x="442" y="{y}" class="s in" font-size="17" fill="{INK}" style="animation-delay:{d:.1f}s">{esc(p)}</text>')
-            y += 31
-    b.append(chips(420, H - 70, tags, delay=.6))
+            b.append(f'<rect x="{TX}" y="{y - 10}" width="8" height="8" fill="{INK}" class="in" style="animation-delay:{d:.1f}s"/>'
+                     f'<text x="{TX + 22}" y="{y}" class="s in" font-size="17" fill="{INK}" style="animation-delay:{d:.1f}s">{esc(p)}</text>')
+            y += 30
+    b.append(chips(TX, H - 62, tags, delay=.6))
     return svg(W, H, "\n".join(b), art_css, alt)
 
 
@@ -151,113 +165,75 @@ def die(x, y, s, pips, delay, dur):
             f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="{s * .16:.0f}" fill="{CREAM}"/>{dots}</g></g>')
 
 
-def projects():
-    out = {}
+def art_orga():
+    sliders = ""
+    for i, (y, col, dur) in enumerate([(205, SUN, 3.2), (265, RED, 4.1), (325, BLUE, 3.6)]):
+        sliders += (f'<line x1="40" y1="{y}" x2="340" y2="{y}" stroke="{CREAM}" stroke-width="3" opacity=".5"/>'
+                    f'<circle cx="110" cy="{y}" r="14" fill="{col}" style="animation:slide{i} {dur}s ease-in-out infinite alternate"/>')
+    labels = "".join(f'<text x="40" y="{y - 18}" class="m" font-size="14" letter-spacing="2" fill="{CREAM}" opacity=".7">{t}</text>'
+                     for y, t in [(205, "SOMMEIL"), (265, "TRAVAIL"), (325, "ÉCRANS")])
+    bar = (f'<text x="40" y="392" class="m" font-size="14" letter-spacing="2" fill="{CREAM}">ŷ · MOYENNE PRÉDITE</text>'
+           f'<rect x="40" y="406" width="300" height="34" fill="none" stroke="{CREAM}" stroke-width="2"/>'
+           f'<rect x="44" y="410" width="292" height="26" fill="{GREEN}" style="transform-box:fill-box; transform-origin:left; '
+           f'animation:res 3.6s ease-in-out infinite alternate"/>')
+    css = ("@keyframes slide0{to{transform:translateX(170px)}} @keyframes slide1{to{transform:translateX(120px)}}"
+           "@keyframes slide2{to{transform:translateX(-50px)}} @keyframes res{from{transform:scaleX(.45)} to{transform:scaleX(.9)}}")
+    return labels + sliders + bar, css
 
-    # 01 : série temporelle observée, prévision et intervalle de confiance
+
+def art_agri():
     obs = [(40, 360), (59, 338), (78, 318), (97, 330), (116, 304), (135, 280), (154, 290), (173, 264),
            (192, 250), (211, 262), (230, 240)]
     fc = [(230, 240), (260, 226), (290, 220), (320, 204), (350, 196)]
     spread = [0, 10, 18, 26, 34]
     band = ("M" + " L".join(f"{x} {y - s}" for (x, y), s in zip(fc, spread))
             + " L" + " L".join(f"{x} {y + s}" for (x, y), s in reversed(list(zip(fc, spread)))) + "Z")
-    art = (f'<line x1="30" y1="440" x2="360" y2="440" stroke="{INK}" stroke-width="3"/>'
-           f'<line x1="30" y1="440" x2="30" y2="180" stroke="{INK}" stroke-width="3"/>'
-           f'<line x1="230" y1="186" x2="230" y2="440" stroke="{INK}" stroke-width="2" stroke-dasharray="5 6" class="in" style="animation-delay:1.6s"/>'
-           f'<path d="{band}" fill="{CREAM}" opacity=".85" class="in" style="animation-delay:1.8s"/>'
-           f'<path d="M{" L".join(f"{x} {y}" for x, y in obs)}" pathLength="1" fill="none" stroke="{INK}" stroke-width="4" '
-           f'stroke-linejoin="round" class="draw" style="animation-delay:.3s"/>'
-           + "".join(f'<circle cx="{x}" cy="{y}" r="4.5" fill="{INK}" class="pop" style="animation-delay:{.4 + i * .1:.1f}s"/>'
-                     for i, (x, y) in enumerate(obs))
-           + f'<path d="M{" L".join(f"{x} {y}" for x, y in fc)}" fill="none" stroke="{RED}" stroke-width="4" '
-             f'stroke-dasharray="10 7" class="in" style="animation-delay:2.1s"/>'
-           + f'<circle cx="350" cy="196" r="7" fill="{RED}" class="pop" style="animation-delay:2.4s"/>'
-           + f'<circle cx="350" cy="196" r="7" fill="none" stroke="{RED}" stroke-width="2" '
-             f'style="transform-box:fill-box; transform-origin:center; animation:ring 1.8s ease-out 2.6s infinite"/>'
-           + f'<text x="40" y="200" class="m in" font-size="12" letter-spacing="2" fill="{INK}" style="animation-delay:.6s">T °C</text>'
-           + f'<text x="240" y="470" class="m in" font-size="12" letter-spacing="2" fill="{INK}" style="animation-delay:1.8s">PRÉVISION</text>'
-           + f'<text x="40" y="470" class="m in" font-size="12" letter-spacing="2" fill="{INK}" style="animation-delay:.6s">OBSERVÉ</text>')
-    out["01-agri"] = panel(
-        "01", SUN, INK, "SCIENCE DES DONNÉES 4 · SÉRIES TEMPORELLES · 4 ÉTUDIANTS", "Future-Agriculteur",
-        ["Un calendrier agricole intelligent : à partir d'un code postal, le site prévoit les",
-         "températures et recommande quoi cultiver selon le jour, la semaine ou le mois."],
-        "LA DÉMARCHE DATA",
-        ["Données météo SYNOP : nettoyage, exploration et visualisation en Python",
-         "Séries temporelles : modèles LSTM (Keras) et SARIMA, un modèle par station",
-         "Prévisions au jour, à la semaine et au mois, traduites en conseils de cultures"],
-        ["Python", "Pandas", "Keras", "SARIMA", "MySQL", "Chart.js"], art,
-        alt="01 Future-Agriculteur : prévision de températures par séries temporelles (LSTM, SARIMA) pour un calendrier agricole")
+    return (f'<line x1="30" y1="440" x2="360" y2="440" stroke="{INK}" stroke-width="3"/>'
+            f'<line x1="30" y1="440" x2="30" y2="180" stroke="{INK}" stroke-width="3"/>'
+            f'<line x1="230" y1="186" x2="230" y2="440" stroke="{INK}" stroke-width="2" stroke-dasharray="5 6" class="in" style="animation-delay:1.6s"/>'
+            f'<path d="{band}" fill="{CREAM}" opacity=".85" class="in" style="animation-delay:1.8s"/>'
+            f'<path d="M{" L".join(f"{x} {y}" for x, y in obs)}" pathLength="1" fill="none" stroke="{INK}" stroke-width="4" '
+            f'stroke-linejoin="round" class="draw" style="animation-delay:.3s"/>'
+            + "".join(f'<circle cx="{x}" cy="{y}" r="4.5" fill="{INK}" class="pop" style="animation-delay:{.4 + i * .1:.1f}s"/>'
+                      for i, (x, y) in enumerate(obs))
+            + f'<path d="M{" L".join(f"{x} {y}" for x, y in fc)}" fill="none" stroke="{RED}" stroke-width="4" '
+              f'stroke-dasharray="10 7" class="in" style="animation-delay:2.1s"/>'
+            + f'<circle cx="350" cy="196" r="7" fill="{RED}" class="pop" style="animation-delay:2.4s"/>'
+            + f'<circle cx="350" cy="196" r="7" fill="none" stroke="{RED}" stroke-width="2" '
+              f'style="transform-box:fill-box; transform-origin:center; animation:ring 1.8s ease-out 2.6s infinite"/>'
+            + f'<text x="40" y="200" class="m in" font-size="14" letter-spacing="2" fill="{INK}" style="animation-delay:.6s">T °C</text>'
+            + f'<text x="240" y="472" class="m in" font-size="14" letter-spacing="2" fill="{INK}" style="animation-delay:1.8s">PRÉVISION</text>'
+            + f'<text x="40" y="472" class="m in" font-size="14" letter-spacing="2" fill="{INK}" style="animation-delay:.6s">OBSERVÉ</text>'), ""
 
-    # 02 : espace d'embeddings, requête et plus proches voisins
+
+def art_pairia():
     groups = [(CREAM, [(70, 210), (95, 190), (110, 228), (82, 245), (125, 205), (60, 180)]),
               (SUN, [(260, 200), (290, 220), (275, 245), (305, 190), (250, 230), (320, 228)]),
               (INK, [(110, 380), (140, 400), (90, 410), (130, 360), (160, 385), (75, 370)])]
     qx, qy = 200, 300
-    neigh = [(250, 230), (160, 385), (130, 360)]
-    art = "".join(f'<line x1="{qx}" y1="{qy}" x2="{x}" y2="{y}" stroke="{CREAM}" stroke-width="2" stroke-dasharray="6 6" '
-                  f'style="opacity:0; animation:in .7s 1.4s forwards, flow 1s linear infinite"/>' for x, y in neigh)
+    art = "".join(f'<line x1="{qx}" y1="{qy}" x2="{x}" y2="{y}" stroke="{CREAM}" stroke-width="2.5" stroke-dasharray="6 6" '
+                  f'style="opacity:0; animation:in .7s 1.4s forwards, flow 1s linear infinite"/>'
+                  for x, y in [(250, 230), (160, 385), (130, 360)])
     k = 0
     for col, pts in groups:
         for x, y in pts:
-            art += f'<circle cx="{x}" cy="{y}" r="8" fill="{col}" class="pop" style="animation-delay:{.3 + k * .05:.2f}s"/>'
+            art += f'<circle cx="{x}" cy="{y}" r="9" fill="{col}" class="pop" style="animation-delay:{.3 + k * .05:.2f}s"/>'
             k += 1
-    art += (f'<circle cx="{qx}" cy="{qy}" r="14" fill="{RED}" class="pop" style="animation-delay:1.3s"/>'
-            f'<circle cx="{qx}" cy="{qy}" r="14" fill="none" stroke="{RED}" stroke-width="3" '
+    art += (f'<circle cx="{qx}" cy="{qy}" r="15" fill="{RED}" class="pop" style="animation-delay:1.3s"/>'
+            f'<circle cx="{qx}" cy="{qy}" r="15" fill="none" stroke="{RED}" stroke-width="3" '
             f'style="transform-box:fill-box; transform-origin:center; animation:ring 1.8s ease-out 1.6s infinite"/>'
-            f'<text x="{qx + 22}" y="{qy + 5}" class="m in" font-size="12" letter-spacing="2" fill="{CREAM}" style="animation-delay:1.4s">REQUÊTE</text>'
-            f'<text x="34" y="470" class="m in" font-size="12" letter-spacing="2" fill="{CREAM}" style="animation-delay:.6s">ESPACE D\'EMBEDDINGS · k PLUS PROCHES</text>')
-    css = "@keyframes flow{to{stroke-dashoffset:-12}}"
-    out["02-pairia"] = panel(
-        "02", BLUE, CREAM, "PROJET DE STAGE · NLP · RAG · IA LOCALE", "PairIA",
-        ["Une boutique de chaussures en ligne avec un assistant conversationnel qui tourne",
-         "entièrement en local : des modèles open source, aucune API payante."],
-        "LA PARTIE IA",
-        ["Classification d'intentions : un CamemBERT affiné sur 8 classes",
-         "Recherche sémantique : embeddings de texte et d'images (CLIP) dans Qdrant",
-         "RAG avec LLaMA 3.1 et Qwen 2.5 en local via Ollama, réponses en 75 langues"],
-        ["Python", "CamemBERT", "Qdrant", "Ollama", "FastAPI", "Docker"], art, css,
-        alt="02 PairIA : assistant IA local pour un site e-commerce, avec classification d'intentions, recherche sémantique et RAG")
+            f'<text x="{qx + 24}" y="{qy + 5}" class="m in" font-size="15" letter-spacing="2" fill="{CREAM}" style="animation-delay:1.4s">REQUÊTE</text>'
+            f'<text x="40" y="472" class="m in" font-size="14" letter-spacing="2" fill="{CREAM}" style="animation-delay:.6s">ESPACE D\'EMBEDDINGS</text>')
+    return art, ""
 
-    # 03 : simulateur à curseurs et moyenne prédite
-    sliders = ""
-    for i, (y, col, dur) in enumerate([(205, SUN, 3.2), (265, RED, 4.1), (325, BLUE, 3.6)]):
-        sliders += (f'<line x1="40" y1="{y}" x2="340" y2="{y}" stroke="{CREAM}" stroke-width="3" opacity=".5"/>'
-                    f'<circle cx="110" cy="{y}" r="14" fill="{col}" style="animation:slide{i} {dur}s ease-in-out infinite alternate"/>')
-    labels = "".join(f'<text x="40" y="{y - 18}" class="m" font-size="12" letter-spacing="2" fill="{CREAM}" opacity=".7">{t}</text>'
-                     for y, t in [(205, "SOMMEIL"), (265, "TRAVAIL"), (325, "ÉCRANS")])
-    bar = (f'<text x="40" y="392" class="m" font-size="12" letter-spacing="2" fill="{CREAM}">ŷ · MOYENNE PRÉDITE</text>'
-           f'<rect x="40" y="406" width="300" height="34" fill="none" stroke="{CREAM}" stroke-width="2"/>'
-           f'<rect x="44" y="410" width="292" height="26" fill="{GREEN}" style="transform-box:fill-box; transform-origin:left; '
-           f'animation:res 3.6s ease-in-out infinite alternate"/>')
-    css = ("@keyframes slide0{to{transform:translateX(170px)}} @keyframes slide1{to{transform:translateX(120px)}}"
-           "@keyframes slide2{to{transform:translateX(-50px)}} @keyframes res{from{transform:scaleX(.45)} to{transform:scaleX(.9)}}")
-    out["03-orga"] = panel(
-        "03", INK, CREAM, "PROJET D'ÉQUIPE · RÉGRESSION LINÉAIRE · AGILE", "Orga+",
-        ["Une plateforme web pour aider les étudiants à s'organiser : diagnostic des habitudes,",
-         "graphiques de suivi, simulateur de résultats et forum d'entraide."],
-        "LA PARTIE DATA",
-        ["Régression linéaire sous R sur un jeu Kaggle de 400 profils d'étudiants",
-         "Simulateur à curseurs : sommeil, travail, écrans → moyenne prédite",
-         "Tableaux de bord de suivi des habitudes ; application PHP et MySQL"],
-        ["R", "Régression", "PHP", "MySQL", "JavaScript"], labels + sliders + bar, css,
-        alt="03 Orga+ : simulateur de résultats fondé sur une régression linéaire")
 
-    # 04 : dés
+def art_casino():
     art = die(48, 210, 120, 5, .3, 4) + die(200, 300, 100, 3, .45, 5) + die(130, 380, 80, 6, .6, 4.5) \
         + die(250, 190, 76, 2, .5, 6)
-    css = "@keyframes tumble{0%,70%,100%{transform:rotate(0)} 80%{transform:rotate(-20deg)} 90%{transform:rotate(12deg)}}"
-    out["04-casino"] = panel(
-        "04", RED, CREAM, "COURS DE PROGRAMMATION AGENTIQUE · M1 · ~25 ÉTUDIANTS", "Casino Fantôme",
-        ["Un simulateur de casino 100 % fictif : 13 jeux à débloquer, niveaux, classement et",
-         "boutique. Tout le code est écrit par des agents IA, que la promo pilote et relit."],
-        "MA PART · GROUPE 4, APPLICATION",
-        ["Les écrans Lobby, Profil, Classement, création de profil et page 404",
-         "L'intégration des 11 interfaces de jeu du groupe 3 dans la page de jeu",
-         "24 pull requests fusionnées, 7 revues de code et une vingtaine d'issues"],
-        ["Agents IA", "React", "Vite", "JavaScript", "Git"], art, css,
-        alt="04 Casino Fantôme : simulateur de casino fictif codé par des agents IA, cours de programmation agentique")
+    return art, "@keyframes tumble{0%,70%,100%{transform:rotate(0)} 80%{transform:rotate(-20deg)} 90%{transform:rotate(12deg)}}"
 
-    # 05 : pile de fiches, version courte
+
+def art_revision():
     cards = "".join(
         f'<g style="transform:translate({190 + dx}px, {232 + dy}px) rotate({r}deg)">'
         f'<rect x="-95" y="-58" width="190" height="116" rx="10" fill="{CREAM}" stroke="{INK}" stroke-width="2.5"/></g>'
@@ -265,31 +241,86 @@ def projects():
     top = (f'<g style="transform:translate(190px, 228px)"><g style="animation:flip 5s ease-in-out infinite">'
            f'<rect x="-95" y="-58" width="190" height="116" rx="10" fill="{CREAM}" stroke="{INK}" stroke-width="2.5"/>'
            f'<text x="0" y="10" text-anchor="middle" class="s" font-size="30" font-weight="800" fill="{INK}">ACP ?</text></g></g>')
-    css = "@keyframes flip{0%,40%,60%,100%{transform:scaleX(1)} 50%{transform:scaleX(0)}}"
+    return cards + top, "@keyframes flip{0%,40%,60%,100%{transform:scaleX(1)} 50%{transform:scaleX(0)}}"
+
+
+def projects():
+    """Projets dans l'ordre chronologique."""
+    out = {}
+    art, css = art_orga()
+    out["01-orga"] = panel(
+        "01", INK, CREAM, "NOV.–DÉC. 2025 · PROJET D'ÉQUIPE · RÉGRESSION LINÉAIRE", "Orga+",
+        ["Une plateforme web pour aider les étudiants à s'organiser : diagnostic des habitudes, graphiques",
+         "de suivi, simulateur de résultats et forum d'entraide."],
+        "LA PARTIE DATA",
+        ["Régression linéaire sous R sur un jeu Kaggle de 400 profils d'étudiants",
+         "Simulateur à curseurs : sommeil, travail, écrans → moyenne prédite par le modèle",
+         "Tableaux de bord de suivi des habitudes, dans une application PHP et MySQL"],
+        ["R", "Régression", "PHP", "MySQL", "JavaScript"], art, css,
+        alt="01 Orga+ (nov.–déc. 2025) : simulateur de résultats étudiants fondé sur une régression linéaire sous R")
+
+    art, css = art_agri()
+    out["02-agri"] = panel(
+        "02", SUN, INK, "FÉV.–AVR. 2026 · SCIENCE DES DONNÉES 4 · SÉRIES TEMPORELLES", "Future-Agriculteur",
+        ["Un calendrier agricole intelligent : à partir d'un code postal, le site prévoit les températures",
+         "et recommande quoi cultiver selon le jour, la semaine ou le mois."],
+        "LA DÉMARCHE DATA",
+        ["Données météo SYNOP : nettoyage, exploration et visualisation en Python",
+         "Séries temporelles : deep learning (LSTM, Keras) et SARIMA, un modèle par station",
+         "Prévisions au jour, à la semaine et au mois, traduites en conseils de cultures"],
+        ["Python", "Pandas", "Keras", "LSTM", "SARIMA", "MySQL"], art, css,
+        alt="02 Future-Agriculteur (fév.–avr. 2026) : prévision de températures par séries temporelles (LSTM, SARIMA)")
+
+    art, css = art_pairia()
+    out["03-pairia"] = panel(
+        "03", BLUE, CREAM, "MAI–JUIL. 2026 · STAGE · NLP · LLM · RAG", "PairIA",
+        ["Une boutique de chaussures en ligne avec un assistant IA conversationnel qui tourne entièrement",
+         "en local : des modèles open source, aucune API payante."],
+        "LA PARTIE IA",
+        ["Classification d'intentions : un CamemBERT affiné sur 8 classes",
+         "Recherche sémantique : embeddings de texte et d'images (CLIP) dans la base vectorielle Qdrant",
+         "RAG avec LLaMA 3.1 et Qwen 2.5 en local via Ollama, et un agent admin à 25 outils"],
+        ["Python", "CamemBERT", "LLM", "RAG", "Qdrant", "Ollama", "FastAPI"], art, css,
+        alt="03 PairIA (mai–juil. 2026, stage) : assistant IA local avec classification d'intentions, recherche sémantique et RAG")
+
+    art, css = art_casino()
+    out["04-casino"] = panel(
+        "04", RED, CREAM, "SEPT.–OCT. 2026 · COURS DE PROGRAMMATION AGENTIQUE", "Casino Fantôme",
+        ["Un simulateur de casino 100 % fictif, codé entièrement par des agents IA que la promo",
+         "(5 groupes, ~25 étudiants) pilote, relit et intègre."],
+        "MA PART · GROUPE 4, APPLICATION",
+        ["Les écrans Lobby, Profil, Classement, création de profil et page 404",
+         "L'intégration des 11 interfaces de jeu du groupe 3 dans la page de jeu",
+         "24 pull requests fusionnées et 7 revues de code, en pilotant des agents IA"],
+        ["Agents IA", "React", "Vite", "JavaScript", "Git"], art, css,
+        alt="04 Casino Fantôme (sept.–oct. 2026) : simulateur de casino codé par des agents IA, cours de programmation agentique")
+
+    art, css = art_revision()
     out["05-revision"] = panel(
-        "05", GREEN, CREAM, "PROJET PERSO · EN LIGNE", "Mes révisions",
-        ["Mon site de révision du M1 : ACP, régression, classification, optimisation…",
-         "avec flashcards, QCM et TP en R et Python qui tournent dans le navigateur."],
-        "", [], ["Svelte", "webR", "Pyodide", "D3.js"], cards + top, css, H=320,
-        alt="05 Mes révisions : site de révision du M1 MIASHS")
+        "05", GREEN, CREAM, "OCT. 2026 · PROJET PERSO · EN LIGNE", "Mes révisions",
+        ["Mon site de révision du M1 : ACP, régression, classification, optimisation… avec flashcards,",
+         "QCM et TP en R et Python qui tournent dans le navigateur."],
+        "", [], ["Svelte", "webR", "Pyodide", "D3.js"], art, css, H=280,
+        alt="05 Mes révisions (oct. 2026) : site de révision du M1 MIASHS")
     return out
 
 
 # ---------------------------------------------------------------- outils
 def tools():
     rows = [("LANGAGES", SUN, ["R", "Python", "SQL", "JavaScript", "PHP"]),
-            ("DATA", RED, ["Pandas", "NumPy", "Matplotlib", "Jupyter", "Keras", "Ollama", "Qdrant"]),
-            ("MÉTHODES", "#7d8bff", ["Régression", "ACP", "Classification", "Séries temporelles", "NLP · RAG", "Dataviz"]),
-            ("BASES & WEB", GREEN, ["MySQL", "CouchDB", "ArangoDB", "D3.js", "React", "Svelte", "Docker", "Git"])]
-    W, H = 1200, 120 + len(rows) * 62 + 24
+            ("DATA", RED, ["Pandas", "NumPy", "Matplotlib", "Jupyter", "D3.js", "Chart.js"]),
+            ("MÉTHODES", "#7d8bff", ["Régression", "ACP", "Classification", "Séries temporelles", "LSTM", "SARIMA"]),
+            ("IA", "#ff9a7a", ["LLM", "RAG", "CamemBERT", "CLIP", "Ollama", "Qdrant", "Agents IA"]),
+            ("BASES & WEB", GREEN, ["MySQL", "CouchDB", "ArangoDB", "FastAPI", "React", "Svelte", "Docker", "Git"])]
+    W, H = 1200, 112 + len(rows) * 60 + 20
     b = [f'<rect width="{W}" height="{H}" fill="{INK}"/>',
          f'<text x="48" y="64" class="s in" font-size="40" font-weight="800" letter-spacing="-1" fill="{CREAM}">Boîte à outils</text>',
          f'<circle cx="1132" cy="52" r="20" fill="{RED}" class="pop"/><rect x="1070" y="34" width="36" height="36" fill="{SUN}" class="pop" style="animation-delay:.15s"/>']
     for k, (lab, col, items) in enumerate(rows):
-        y = 112 + k * 62
+        y = 108 + k * 60
         b.append(f'<text x="48" y="{y + 23}" class="m in" font-size="14" letter-spacing="3" font-weight="700" fill="{col}" '
-                 f'style="animation-delay:{.2 + k * .15:.2f}s">{esc(lab)}</text>')
-        b.append(chips(230, y, items, dark=True, delay=.3 + k * .15, size=14))
+                 f'style="animation-delay:{.2 + k * .12:.2f}s">{esc(lab)}</text>')
+        b.append(chips(230, y, items, dark=True, delay=.3 + k * .12, size=14))
     return svg(W, H, "\n".join(b), label="Boîte à outils : " + ", ".join(i for r in rows for i in r[2]))
 
 

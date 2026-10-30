@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-label="01 Orga+ (nov.–déc. 2025) : simulateur de résultats étudiants fondé sur une régression linéaire sous R">
+<style>
+.s{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif} .m{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace}
+.in{opacity:0; animation:in .7s cubic-bezier(.2,.75,.2,1) forwards}
+.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .6s cubic-bezier(.3,1.45,.5,1) forwards}
+.left{opacity:0; animation:left .8s cubic-bezier(.2,.75,.2,1) forwards}
+.draw{stroke-dasharray:1; stroke-dashoffset:1; animation:draw 2s cubic-bezier(.55,.1,.35,1) forwards}
+@keyframes in{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+@keyframes left{from{opacity:0; transform:translateX(-30px)} to{opacity:1; transform:none}}
+@keyframes pop{from{opacity:0; transform:scale(.3)} to{opacity:1; transform:scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{from{transform:scaleY(1)} to{transform:scaleY(.8)}}
+@keyframes ring{from{transform:scale(.4); opacity:.9} to{transform:scale(2.2); opacity:0}}
+@keyframes flow{to{stroke-dashoffset:-12}}
+@keyframes slide0{to{transform:translateX(170px)}} @keyframes slide1{to{transform:translateX(120px)}}@keyframes slide2{to{transform:translateX(-50px)}} @keyframes res{from{transform:scaleX(.45)} to{transform:scaleX(.9)}}</style>
+<rect width="1200" height="440" fill="#f2ede3"/>
+<rect width="280" height="440" fill="#141414"/>
+<text x="28" y="92" class="s in" font-size="72" font-weight="800" letter-spacing="-3" fill="#f2ede3">01</text>
+<g transform="translate(8 56) scale(.66)"><text x="40" y="187" class="m" font-size="14" letter-spacing="2" fill="#f2ede3" opacity=".7">SOMMEIL</text><text x="40" y="247" class="m" font-size="14" letter-spacing="2" fill="#f2ede3" opacity=".7">TRAVAIL</text><text x="40" y="307" class="m" font-size="14" letter-spacing="2" fill="#f2ede3" opacity=".7">ÉCRANS</text><line x1="40" y1="205" x2="340" y2="205" stroke="#f2ede3" stroke-width="3" opacity=".5"/><circle cx="110" cy="205" r="14" fill="#ffc21a" style="animation:slide0 3.2s ease-in-out infinite alternate"/><line x1="40" y1="265" x2="340" y2="265" stroke="#f2ede3" stroke-width="3" opacity=".5"/><circle cx="110" cy="265" r="14" fill="#ff4d1f" style="animation:slide1 4.1s ease-in-out infinite alternate"/><line x1="40" y1="325" x2="340" y2="325" stroke="#f2ede3" stroke-width="3" opacity=".5"/><circle cx="110" cy="325" r="14" fill="#2442ff" style="animation:slide2 3.6s ease-in-out infinite alternate"/><text x="40" y="392" class="m" font-size="14" letter-spacing="2" fill="#f2ede3">ŷ · MOYENNE PRÉDITE</text><rect x="40" y="406" width="300" height="34" fill="none" stroke="#f2ede3" stroke-width="2"/><rect x="44" y="410" width="292" height="26" fill="#19a974" style="transform-box:fill-box; transform-origin:left; animation:res 3.6s ease-in-out infinite alternate"/></g>
+<text x="320" y="58" class="m in" font-size="13" letter-spacing="2.5" fill="#5b554b">NOV.–DÉC. 2025 · PROJET D'ÉQUIPE · RÉGRESSION LINÉAIRE</text>
+<text x="1160" y="58" text-anchor="end" class="m in" font-size="13" letter-spacing="2.5" font-weight="700" fill="#141414">DÉPÔT ↗</text>
+<line x1="320" y1="74" x2="1160" y2="74" stroke="#141414" stroke-width="2" class="in"/>
+<text x="318" y="128" class="s in" font-size="44" font-weight="800" letter-spacing="-1.5" fill="#141414" style="animation-delay:.1s">Orga+</text>
+<text x="320" y="166" class="s in" font-size="17" fill="#2a2620" style="animation-delay:.2s">Une plateforme web pour aider les étudiants à s'organiser : diagnostic des habitudes, graphiques</text>
+<text x="320" y="192" class="s in" font-size="17" fill="#2a2620" style="animation-delay:.2s">de suivi, simulateur de résultats et forum d'entraide.</text>
+<rect x="320" y="225" width="12" height="12" fill="#141414" class="in" style="animation-delay:.3s"/><text x="342" y="236" class="m in" font-size="12" letter-spacing="3" font-weight="700" fill="#141414" style="animation-delay:.3s">LA PARTIE DATA</text>
+<rect x="320" y="258" width="8" height="8" fill="#141414" class="in" style="animation-delay:0.4s"/><text x="342" y="268" class="s in" font-size="17" fill="#141414" style="animation-delay:0.4s">Régression linéaire sous R sur un jeu Kaggle de 400 profils d'étudiants</text>
+<rect x="320" y="288" width="8" height="8" fill="#141414" class="in" style="animation-delay:0.5s"/><text x="342" y="298" class="s in" font-size="17" fill="#141414" style="animation-delay:0.5s">Simulateur à curseurs : sommeil, travail, écrans → moyenne prédite par le modèle</text>
+<rect x="320" y="318" width="8" height="8" fill="#141414" class="in" style="animation-delay:0.6s"/><text x="342" y="328" class="s in" font-size="17" fill="#141414" style="animation-delay:0.6s">Tableaux de bord de suivi des habitudes, dans une application PHP et MySQL</text>
+<g class="pop" style="animation-delay:0.60s"><rect x="320" y="378" width="38" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="339" y="400" text-anchor="middle" class="m" font-size="13" fill="#141414">R</text></g><g class="pop" style="animation-delay:0.67s"><rect x="367.8" y="378" width="108" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="422" y="400" text-anchor="middle" class="m" font-size="13" fill="#141414">Régression</text></g><g class="pop" style="animation-delay:0.74s"><rect x="485.8" y="378" width="53" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="512" y="400" text-anchor="middle" class="m" font-size="13" fill="#141414">PHP</text></g><g class="pop" style="animation-delay:0.81s"><rect x="549.2" y="378" width="69" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="584" y="400" text-anchor="middle" class="m" font-size="13" fill="#141414">MySQL</text></g><g class="pop" style="animation-delay:0.88s"><rect x="628.2" y="378" width="108" height="34" rx="17" fill="none" stroke="#141414" stroke-width="1.6"/><text x="682" y="400" text-anchor="middle" class="m" font-size="13" fill="#141414">JavaScript</text></g>
+</svg>
