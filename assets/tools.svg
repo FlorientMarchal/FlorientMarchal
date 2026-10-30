@@ -1,26 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-label="Boîte à outils : R, Python, Pandas, Jupyter, SQL, CouchDB, ArangoDB, Ollama, Qdrant, Keras, CamemBERT, Agents IA, PHP, JavaScript, React, Svelte, D3.js, MySQL, Docker, Git">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="428" viewBox="0 0 1200 428" role="img" aria-label="Nomenclature des outils : R, Python, Pandas, Jupyter, SQL, CouchDB, ArangoDB, Ollama, Qdrant, Keras, CamemBERT, Agents IA, PHP, JavaScript, React, Svelte, D3.js, MySQL, Docker, Git">
 <style>
 .s{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif} .m{font-family:'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace}
-.in{opacity:0; animation:in .7s cubic-bezier(.2,.75,.2,1) forwards}
-.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .6s cubic-bezier(.3,1.45,.5,1) forwards}
-.left{opacity:0; animation:left .8s cubic-bezier(.2,.75,.2,1) forwards}
-.draw{stroke-dasharray:1200; stroke-dashoffset:1200; animation:draw 2s cubic-bezier(.55,.1,.35,1) forwards}
-.grow{transform-box:fill-box; transform-origin:bottom; transform:scaleY(0); animation:grow .8s cubic-bezier(.2,.75,.2,1) forwards}
-@keyframes in{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
-@keyframes left{from{opacity:0; transform:translateX(-30px)} to{opacity:1; transform:none}}
-@keyframes pop{from{opacity:0; transform:scale(.3)} to{opacity:1; transform:scale(1)}}
+.d{fill:none; stroke:#eaf2ff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+   stroke-dasharray:1; stroke-dashoffset:1; animation:draw 1.6s cubic-bezier(.55,.1,.35,1) forwards}
+.dc{stroke:#ff8a7a; stroke-width:2.5}
+.dim{fill:none; stroke:#7fd3ff; stroke-width:1.2; stroke-dasharray:1; stroke-dashoffset:1; animation:draw 1s ease forwards}
+.in{opacity:0; animation:in .6s ease forwards}
+.pop{opacity:0; transform-box:fill-box; transform-origin:center; animation:pop .5s cubic-bezier(.3,1.45,.5,1) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
-@keyframes grow{to{transform:scaleY(1)}}
+@keyframes in{from{opacity:0} to{opacity:1}}
+@keyframes pop{from{opacity:0; transform:scale(.2)} to{opacity:1; transform:scale(1)}}
+@keyframes blink{50%{opacity:.2}}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes breathe{from{transform:scaleY(1)} to{transform:scaleY(.72)}}
 </style>
-<rect width="1200" height="330" fill="#141414"/>
-<text x="48" y="64" class="s in" font-size="40" font-weight="800" letter-spacing="-1" fill="#f2ede3">Boîte à outils</text>
-<circle cx="1132" cy="52" r="20" fill="#ff4d1f" class="pop"/><rect x="1070" y="34" width="36" height="36" fill="#ffc21a" class="pop" style="animation-delay:.15s"/>
-<text x="48" y="139" class="m in" font-size="14" letter-spacing="3" font-weight="700" fill="#ffc21a" style="animation-delay:0.20s">DONNÉES</text>
-<g class="pop" style="animation-delay:0.30s"><rect x="190" y="116" width="38" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="209" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">R</text></g><g class="pop" style="animation-delay:0.37s"><rect x="238.4" y="116" width="80" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="279" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Python</text></g><g class="pop" style="animation-delay:0.44s"><rect x="328.8" y="116" width="80" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="369" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Pandas</text></g><g class="pop" style="animation-delay:0.51s"><rect x="419.20000000000005" y="116" width="89" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="464" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Jupyter</text></g><g class="pop" style="animation-delay:0.58s"><rect x="518.0" y="116" width="55" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="546" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">SQL</text></g><g class="pop" style="animation-delay:0.65s"><rect x="583.2" y="116" width="89" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="628" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">CouchDB</text></g><g class="pop" style="animation-delay:0.72s"><rect x="682.0" y="116" width="97" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="731" y="138" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">ArangoDB</text></g>
-<text x="48" y="205" class="m in" font-size="14" letter-spacing="3" font-weight="700" fill="#ff4d1f" style="animation-delay:0.35s">IA</text>
-<g class="pop" style="animation-delay:0.45s"><rect x="190" y="182" width="80" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="230" y="204" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Ollama</text></g><g class="pop" style="animation-delay:0.52s"><rect x="280.4" y="182" width="80" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="321" y="204" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Qdrant</text></g><g class="pop" style="animation-delay:0.59s"><rect x="370.79999999999995" y="182" width="72" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="407" y="204" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Keras</text></g><g class="pop" style="animation-delay:0.66s"><rect x="452.79999999999995" y="182" width="106" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="506" y="204" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">CamemBERT</text></g><g class="pop" style="animation-delay:0.73s"><rect x="568.4" y="182" width="106" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="621" y="204" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Agents IA</text></g>
-<text x="48" y="271" class="m in" font-size="14" letter-spacing="3" font-weight="700" fill="#7d8bff" style="animation-delay:0.50s">WEB</text>
-<g class="pop" style="animation-delay:0.60s"><rect x="190" y="248" width="55" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="218" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">PHP</text></g><g class="pop" style="animation-delay:0.67s"><rect x="255.2" y="248" width="114" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="312" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">JavaScript</text></g><g class="pop" style="animation-delay:0.74s"><rect x="379.2" y="248" width="72" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="415" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">React</text></g><g class="pop" style="animation-delay:0.81s"><rect x="461.2" y="248" width="80" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="501" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Svelte</text></g><g class="pop" style="animation-delay:0.88s"><rect x="551.6" y="248" width="72" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="588" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">D3.js</text></g><g class="pop" style="animation-delay:0.95s"><rect x="633.6" y="248" width="72" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="670" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">MySQL</text></g><g class="pop" style="animation-delay:1.02s"><rect x="715.6" y="248" width="80" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="756" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Docker</text></g><g class="pop" style="animation-delay:1.09s"><rect x="806.0" y="248" width="55" height="34" rx="17" fill="none" stroke="#f2ede3" stroke-width="1.6"/><text x="834" y="270" text-anchor="middle" class="m" font-size="14" fill="#f2ede3">Git</text></g>
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(234,242,255,.07)"/></pattern><pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="rgba(234,242,255,.14)"/></pattern></defs><rect width="1200" height="428" fill="#123a7a"/><rect width="1200" height="428" fill="url(#g)"/><rect width="1200" height="428" fill="url(#G)"/><rect x="12" y="12" width="1176" height="404" fill="none" stroke="#eaf2ff" stroke-width="2.5"/><rect x="20" y="20" width="1160" height="388" fill="none" stroke="rgba(234,242,255,.55)" stroke-width="1"/><path d="M100 12V20M100 408V416M200 12V20M200 408V416M300 12V20M300 408V416M400 12V20M400 408V416M500 12V20M500 408V416M600 12V20M600 408V416M700 12V20M700 408V416M800 12V20M800 408V416M900 12V20M900 408V416M1000 12V20M1000 408V416M1100 12V20M1100 408V416M12 100H20M1180 100H1188M12 200H20M1180 200H1188M12 300H20M1180 300H1188M12 400H20M1180 400H1188" stroke="#eaf2ff" stroke-width="1.5"/>
+<text x="40" y="58" class="m in" font-size="12" letter-spacing="3" fill="#7fd3ff">NOMENCLATURE</text>
+<text x="40" y="86" class="m in" font-size="24" font-weight="700" letter-spacing="1" fill="#eaf2ff">OUTILS</text>
+<rect x="40" y="104" width="1120" height="40" fill="#0f3270" class="in"/>
+<text x="54" y="130" class="m in" font-size="12" letter-spacing="2.5" fill="#ffd166">REP.</text>
+<text x="134" y="130" class="m in" font-size="12" letter-spacing="2.5" fill="#ffd166">DONNÉES</text>
+<text x="484" y="130" class="m in" font-size="12" letter-spacing="2.5" fill="#ffd166">IA</text>
+<text x="834" y="130" class="m in" font-size="12" letter-spacing="2.5" fill="#ffd166">WEB</text>
+<path d="M40 104H1160V384H40ZM120 104V384M470 104V384M820 104V384M40 144H1160M40 174H1160M40 204H1160M40 234H1160M40 264H1160M40 294H1160M40 324H1160M40 354H1160" pathLength="1" class="d" style="animation-delay:0.10s" />
+<text x="54" y="164" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.50s">01</text>
+<text x="134" y="164" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.50s">R</text>
+<text x="484" y="164" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.50s">Ollama</text>
+<text x="834" y="164" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.50s">PHP</text>
+<text x="54" y="194" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.57s">02</text>
+<text x="134" y="194" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.57s">Python</text>
+<text x="484" y="194" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.57s">Qdrant</text>
+<text x="834" y="194" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.57s">JavaScript</text>
+<text x="54" y="224" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.64s">03</text>
+<text x="134" y="224" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.64s">Pandas</text>
+<text x="484" y="224" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.64s">Keras</text>
+<text x="834" y="224" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.64s">React</text>
+<text x="54" y="254" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.71s">04</text>
+<text x="134" y="254" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.71s">Jupyter</text>
+<text x="484" y="254" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.71s">CamemBERT</text>
+<text x="834" y="254" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.71s">Svelte</text>
+<text x="54" y="284" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.78s">05</text>
+<text x="134" y="284" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.78s">SQL</text>
+<text x="484" y="284" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.78s">Agents IA</text>
+<text x="834" y="284" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.78s">D3.js</text>
+<text x="54" y="314" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.85s">06</text>
+<text x="134" y="314" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.85s">CouchDB</text>
+<text x="834" y="314" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.85s">MySQL</text>
+<text x="54" y="344" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.92s">07</text>
+<text x="134" y="344" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.92s">ArangoDB</text>
+<text x="834" y="344" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.92s">Docker</text>
+<text x="54" y="374" class="m in" font-size="13" fill="#7fd3ff" style="animation-delay:0.99s">08</text>
+<text x="834" y="374" class="m in" font-size="14" fill="#eaf2ff" style="animation-delay:0.99s">Git</text>
 </svg>
