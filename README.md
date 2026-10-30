@@ -1,7 +1,7 @@
 <img src="assets/header.svg" width="100%" alt="Florient Marchal, étudiant en M1 MIASHS entre data science et IA : des données au modèle, et du modèle à l'outil">
 
 <p align="center">
-  <a href="https://florientmarchal.github.io/FlorientMarchal/"><b>Mon CV</b></a>
+  <a href="https://florientmarchal.github.io/FlorientMarchal/"><b>Qui suis-je ?</b></a>
   &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/florient-marchal-7247a92b0"><b>LinkedIn</b></a>
   &nbsp;·&nbsp;
