@@ -105,7 +105,7 @@ def header():
     b.append(f'<rect x="0" y="420" width="{W}" height="60" fill="{INK}"/>')
     b.append('<g style="animation:marquee 28s linear infinite">'
              + "".join(f'<text x="{k * L}" y="457" class="m" font-size="19" letter-spacing="2" fill="{CREAM}" '
-                       f'textLength="{L}" lengthAdjust="spacing">{words}</text>' for k in range(2))
+                       f'textLength="{L}" lengthAdjust="spacing" xml:space="preserve">{words}</text>' for k in range(2))
              + '</g>')
     css = f"@keyframes marquee{{to{{transform:translateX(-{L}px)}}}}"
     return svg(W, H, "\n".join(b), css, "Florient Marchal, étudiant en M1 MIASHS orienté data science")
