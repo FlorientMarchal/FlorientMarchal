@@ -233,59 +233,12 @@ def art_casino():
     return art, "@keyframes tumble{0%,70%,100%{transform:rotate(0)} 80%{transform:rotate(-20deg)} 90%{transform:rotate(12deg)}}"
 
 
-def art_revision():
-    cards = "".join(
-        f'<g style="transform:translate({190 + dx}px, {232 + dy}px) rotate({r}deg)">'
-        f'<rect x="-95" y="-58" width="190" height="116" rx="10" fill="{CREAM}" stroke="{INK}" stroke-width="2.5"/></g>'
-        for dx, dy, r in [(-14, 10, -9), (12, 4, 6)])
-    top = (f'<g style="transform:translate(190px, 228px)"><g style="animation:flip 5s ease-in-out infinite">'
-           f'<rect x="-95" y="-58" width="190" height="116" rx="10" fill="{CREAM}" stroke="{INK}" stroke-width="2.5"/>'
-           f'<text x="0" y="10" text-anchor="middle" class="s" font-size="30" font-weight="800" fill="{INK}">ACP ?</text></g></g>')
-    return cards + top, "@keyframes flip{0%,40%,60%,100%{transform:scaleX(1)} 50%{transform:scaleX(0)}}"
-
-
 def projects():
-    """Projets dans l'ordre chronologique."""
+    """Projets du plus récent au plus ancien."""
     out = {}
-    art, css = art_orga()
-    out["01-orga"] = panel(
-        "01", INK, CREAM, "NOV.–DÉC. 2025 · PROJET D'ÉQUIPE · RÉGRESSION LINÉAIRE", "Orga+",
-        ["Une plateforme web pour aider les étudiants à s'organiser : diagnostic des habitudes, graphiques",
-         "de suivi, simulateur de résultats et forum d'entraide."],
-        "LA PARTIE DATA",
-        ["Régression linéaire sous R sur un jeu Kaggle de 400 profils d'étudiants",
-         "Simulateur à curseurs : sommeil, travail, écrans → moyenne prédite par le modèle",
-         "Tableaux de bord de suivi des habitudes, dans une application PHP et MySQL"],
-        ["R", "Régression", "PHP", "MySQL", "JavaScript"], art, css,
-        alt="01 Orga+ (nov.–déc. 2025) : simulateur de résultats étudiants fondé sur une régression linéaire sous R")
-
-    art, css = art_agri()
-    out["02-agri"] = panel(
-        "02", SUN, INK, "FÉV.–AVR. 2026 · SCIENCE DES DONNÉES 4 · SÉRIES TEMPORELLES", "Future-Agriculteur",
-        ["Un calendrier agricole intelligent : à partir d'un code postal, le site prévoit les températures",
-         "et recommande quoi cultiver selon le jour, la semaine ou le mois."],
-        "LA DÉMARCHE DATA",
-        ["Données météo SYNOP : nettoyage, exploration et visualisation en Python",
-         "Séries temporelles : deep learning (LSTM, Keras) et SARIMA, un modèle par station",
-         "Prévisions au jour, à la semaine et au mois, traduites en conseils de cultures"],
-        ["Python", "Pandas", "Keras", "LSTM", "SARIMA", "MySQL"], art, css,
-        alt="02 Future-Agriculteur (fév.–avr. 2026) : prévision de températures par séries temporelles (LSTM, SARIMA)")
-
-    art, css = art_pairia()
-    out["03-pairia"] = panel(
-        "03", BLUE, CREAM, "MAI–JUIL. 2026 · STAGE · NLP · LLM · RAG", "PairIA",
-        ["Une boutique de chaussures en ligne avec un assistant IA conversationnel qui tourne entièrement",
-         "en local : des modèles open source, aucune API payante."],
-        "LA PARTIE IA",
-        ["Classification d'intentions : un CamemBERT affiné sur 8 classes",
-         "Recherche sémantique : embeddings de texte et d'images (CLIP) dans la base vectorielle Qdrant",
-         "RAG avec LLaMA 3.1 et Qwen 2.5 en local via Ollama, et un agent admin à 25 outils"],
-        ["Python", "CamemBERT", "LLM", "RAG", "Qdrant", "Ollama", "FastAPI"], art, css,
-        alt="03 PairIA (mai–juil. 2026, stage) : assistant IA local avec classification d'intentions, recherche sémantique et RAG")
-
     art, css = art_casino()
-    out["04-casino"] = panel(
-        "04", RED, CREAM, "SEPT.–OCT. 2026 · COURS DE PROGRAMMATION AGENTIQUE", "Casino Fantôme",
+    out["01-casino"] = panel(
+        "01", RED, CREAM, "SEPT.–OCT. 2026 · COURS DE PROGRAMMATION AGENTIQUE", "Casino Fantôme",
         ["Un simulateur de casino 100 % fictif, codé entièrement par des agents IA que la promo",
          "(5 groupes, ~25 étudiants) pilote, relit et intègre."],
         "MA PART · GROUPE 4, APPLICATION",
@@ -293,15 +246,43 @@ def projects():
          "L'intégration des 11 interfaces de jeu du groupe 3 dans la page de jeu",
          "24 pull requests fusionnées et 7 revues de code, en pilotant des agents IA"],
         ["Agents IA", "React", "Vite", "JavaScript", "Git"], art, css,
-        alt="04 Casino Fantôme (sept.–oct. 2026) : simulateur de casino codé par des agents IA, cours de programmation agentique")
+        alt="01 Casino Fantôme (sept.–oct. 2026) : simulateur de casino codé par des agents IA, cours de programmation agentique")
 
-    art, css = art_revision()
-    out["05-revision"] = panel(
-        "05", GREEN, CREAM, "OCT. 2026 · PROJET PERSO · EN LIGNE", "Mes révisions",
-        ["Mon site de révision du M1 : ACP, régression, classification, optimisation… avec flashcards,",
-         "QCM et TP en R et Python qui tournent dans le navigateur."],
-        "", [], ["Svelte", "webR", "Pyodide", "D3.js"], art, css, H=280,
-        alt="05 Mes révisions (oct. 2026) : site de révision du M1 MIASHS")
+    art, css = art_pairia()
+    out["02-pairia"] = panel(
+        "02", BLUE, CREAM, "MAI–JUIL. 2026 · STAGE · NLP · LLM · RAG", "PairIA",
+        ["Une boutique de chaussures en ligne avec un assistant IA conversationnel qui tourne entièrement",
+         "en local : des modèles open source, aucune API payante."],
+        "LA PARTIE IA",
+        ["Classification d'intentions : un CamemBERT affiné sur 8 classes",
+         "Recherche sémantique : embeddings de texte et d'images (CLIP) dans la base vectorielle Qdrant",
+         "RAG avec LLaMA 3.1 et Qwen 2.5 en local via Ollama, et un agent admin à 25 outils"],
+        ["Python", "CamemBERT", "LLM", "RAG", "Qdrant", "Ollama", "FastAPI"], art, css,
+        alt="02 PairIA (mai–juil. 2026, stage) : assistant IA local avec classification d'intentions, recherche sémantique et RAG")
+
+    art, css = art_agri()
+    out["03-agri"] = panel(
+        "03", SUN, INK, "FÉV.–AVR. 2026 · SCIENCE DES DONNÉES 4 · SÉRIES TEMPORELLES", "Future-Agriculteur",
+        ["Un calendrier agricole intelligent : à partir d'un code postal, le site prévoit les températures",
+         "et recommande quoi cultiver selon le jour, la semaine ou le mois."],
+        "LA DÉMARCHE DATA",
+        ["Données météo SYNOP : nettoyage, exploration et visualisation en Python",
+         "Séries temporelles : deep learning (LSTM, Keras) et SARIMA, un modèle par station",
+         "Prévisions au jour, à la semaine et au mois, traduites en conseils de cultures"],
+        ["Python", "Pandas", "Keras", "LSTM", "SARIMA", "MySQL"], art, css,
+        alt="03 Future-Agriculteur (fév.–avr. 2026) : prévision de températures par séries temporelles (LSTM, SARIMA)")
+
+    art, css = art_orga()
+    out["04-orga"] = panel(
+        "04", INK, CREAM, "NOV.–DÉC. 2025 · PROJET D'ÉQUIPE · RÉGRESSION LINÉAIRE", "Orga+",
+        ["Une plateforme web pour aider les étudiants à s'organiser : diagnostic des habitudes, graphiques",
+         "de suivi, simulateur de résultats et forum d'entraide."],
+        "LA PARTIE DATA",
+        ["Régression linéaire sous R sur un jeu Kaggle de 400 profils d'étudiants",
+         "Simulateur à curseurs : sommeil, travail, écrans → moyenne prédite par le modèle",
+         "Tableaux de bord de suivi des habitudes, dans une application PHP et MySQL"],
+        ["R", "Régression", "PHP", "MySQL", "JavaScript"], art, css,
+        alt="04 Orga+ (nov.–déc. 2025) : simulateur de résultats étudiants fondé sur une régression linéaire sous R")
     return out
 
 
