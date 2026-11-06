@@ -4,527 +4,110 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Florient Marchal</title>
-<meta name="description" content="Florient Marchal, étudiant en Master MIASHS : données, visualisation et intelligence artificielle.">
+<meta name="description" content="Florient Marchal, étudiant en master MIASHS à Montpellier. Données, visualisation, IA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f6f3ee; --bg-2:#efeae2; --ink:#1c1b19; --ink-2:#4a463f; --muted:#8a8378; --line:#ddd6ca;
-  --accent:#c4532c; --accent-soft:rgba(196,83,44,.12);
-  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
-  --sans:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --bg:#fdfcf9; --ink:#222; --soft:#555; --faint:#8b8b8b; --rule:#e2dfd8; --link:#1f4fa8; --mark:#fff2a8;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#151412; --bg-2:#1d1b18; --ink:#f1ece4; --ink-2:#c9c2b6; --muted:#8e877b; --line:#34302a;
-    --accent:#ec7a4f; --accent-soft:rgba(236,122,79,.14);
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#151412; --bg-2:#1d1b18; --ink:#f1ece4; --ink-2:#c9c2b6; --muted:#8e877b; --line:#34302a;
-  --accent:#ec7a4f; --accent-soft:rgba(236,122,79,.14);
+  :root{--bg:#181816; --ink:#e6e3dc; --soft:#b3afa6; --faint:#7d7a73; --rule:#33322e; --link:#8db3ff; --mark:#4a4320}
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:18px; line-height:1.65;
-  -webkit-font-smoothing:antialiased; transition:background .4s, color .4s}
-a{color:inherit}
-::selection{background:var(--accent); color:var(--bg)}
-.wrap{max-width:980px; margin:0 auto; padding:0 28px}
-.label{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
-h2{font-family:var(--serif); font-weight:400; font-size:clamp(38px,5.4vw,58px); line-height:1.05; letter-spacing:-.01em; margin:14px 0 0}
-h2 em,h1 em{font-style:italic; color:var(--accent)}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.6;
+  font-optical-sizing:auto; -webkit-font-smoothing:antialiased}
+main{max-width:720px; margin:0 auto; padding:72px 24px 56px}
+a{color:var(--link); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+p{margin:0 0 1em}
+mark{background:var(--mark); color:inherit; padding:0 2px}
 
-/* navigation */
-.nav{position:fixed; inset:0 0 auto 0; z-index:20; transition:background .3s, border-color .3s; border-bottom:1px solid transparent}
-.nav.solid{background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); border-color:var(--line)}
-.nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
-.nav .me{font-family:var(--serif); font-size:24px; text-decoration:none}
-.nav nav{display:flex; gap:26px; align-items:center}
-.nav nav a{font-size:14.5px; color:var(--ink-2); text-decoration:none}
-.nav nav a:hover{color:var(--accent)}
-.theme{width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:transparent; color:var(--ink);
-  cursor:pointer; display:grid; place-items:center; font-size:15px}
-.theme:hover{border-color:var(--accent); color:var(--accent)}
+header h1{font-size:34px; font-weight:600; line-height:1.2; margin:0}
+header .sub{margin:4px 0 0; color:var(--soft); font-style:italic}
+header .links{margin:14px 0 0; font-size:16.5px}
+header .links a{margin-right:14px}
 
-/* accueil */
-.hero{position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden}
-#dots{position:absolute; inset:0; width:100%; height:100%}
-.hero .wrap{position:relative; z-index:1; padding-top:90px; padding-bottom:60px}
-.hello{font-size:18px; color:var(--ink-2); margin:0}
-.hello b{color:var(--ink); font-weight:600}
-h1{font-family:var(--serif); font-weight:400; font-size:clamp(46px,8vw,96px); line-height:1; letter-spacing:-.02em; margin:18px 0 0; max-width:14ch}
-.lead{font-size:clamp(18px,2vw,21px); color:var(--ink-2); max-width:44ch; margin:28px 0 0}
-.cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:36px}
-.btn{display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:999px; font-size:15.5px; font-weight:500;
-  text-decoration:none; border:1px solid var(--ink); transition:all .2s}
-.btn.main{background:var(--ink); color:var(--bg)}
-.btn.main:hover{background:var(--accent); border-color:var(--accent)}
-.btn:not(.main):hover{border-color:var(--accent); color:var(--accent)}
-.scroll{position:absolute; left:50%; bottom:26px; z-index:1; transform:translateX(-50%); font-size:12px; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--muted); text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:8px}
-.scroll i{width:1px; height:34px; background:linear-gradient(var(--muted),transparent); animation:drip 2s ease-in-out infinite}
+h2{font-size:15px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--faint);
+  margin:52px 0 16px; padding-bottom:6px; border-bottom:1px solid var(--rule)}
 
-/* sections */
-section{padding:120px 0 0}
-.about{display:grid; grid-template-columns:1fr 1.25fr; gap:64px; align-items:start}
-.about p{margin:0 0 20px; color:var(--ink-2)}
-.about p:first-child::first-letter{font-family:var(--serif); float:left; font-size:78px; line-height:.8; padding:8px 12px 0 0; color:var(--accent)}
-.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:56px; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
-.fact{padding:26px 8px; text-align:center}
-.fact + .fact{border-left:1px solid var(--line)}
-a.fact{text-decoration:none; transition:color .2s} a.fact:hover{color:var(--accent)}
-.fact b{display:block; font-family:var(--serif); font-weight:400; font-size:44px; line-height:1}
-.fact span{display:block; margin-top:8px; font-size:14.5px; color:var(--muted)}
+/* listes datées : l'année dans la marge, le texte à côté */
+.dated{list-style:none; margin:0; padding:0}
+.dated li{display:grid; grid-template-columns:92px 1fr; gap:18px; margin:0 0 18px}
+.dated .y{color:var(--faint); font-size:16px; padding-top:2px; font-variant-numeric:tabular-nums}
+.dated b{font-weight:600}
+.dated .d{display:block; color:var(--soft)}
 
-.loves{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:44px}
-.love{padding:30px 30px 28px; border:1px solid var(--line); border-radius:22px; background:var(--bg-2); transition:border-color .3s, transform .3s}
-.love:hover{border-color:var(--accent); transform:translateY(-3px)}
-.love .ic{width:46px; height:46px; border-radius:14px; background:var(--accent-soft); display:grid; place-items:center; color:var(--accent)}
-.love h3{font-family:var(--serif); font-weight:400; font-size:30px; line-height:1.1; margin:20px 0 0}
-.love p{margin:10px 0 0; color:var(--ink-2); font-size:16.5px}
+footer{max-width:720px; margin:0 auto; padding:0 24px 48px; font-size:15px; color:var(--faint)}
+footer p{border-top:1px solid var(--rule); padding-top:14px}
 
-/* projets */
-.projects{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:44px}
-.proj{border:1px solid var(--line); border-radius:22px; overflow:hidden; background:var(--bg-2); display:flex; flex-direction:column;
-  transition:border-color .3s, transform .3s}
-.proj:hover{border-color:var(--accent); transform:translateY(-4px)}
-.proj.big{grid-column:1 / -1; flex-direction:row}
-.proj .vis{background:var(--accent-soft); aspect-ratio:16/9; display:grid; place-items:center}
-.proj.big .vis{flex:1.1; aspect-ratio:auto; min-height:280px}
-.proj .vis svg{width:88%; height:auto; overflow:visible}
-.proj .txt{padding:26px 28px 28px; display:flex; flex-direction:column; flex:1}
-.proj .meta{font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
-.proj h3{font-family:var(--serif); font-weight:400; font-size:30px; line-height:1.12; margin:8px 0 0}
-.proj.big h3{font-size:36px}
-.proj p{margin:10px 0 0; color:var(--ink-2); font-size:16.5px}
-.proj .tagline{margin-top:14px; font-size:14px; color:var(--accent); font-weight:500}
-.proj .go{margin-top:auto; padding-top:16px; font-size:15px; font-weight:500; text-decoration:none; color:var(--ink)}
-.proj .go:hover{color:var(--accent)}
-.more{margin:26px 0 0; color:var(--ink-2); font-size:16.5px}
-.more a{color:var(--accent); text-underline-offset:3px}
-/* illustrations des projets */
-.vis svg *{vector-effect:non-scaling-stroke}
-.hexes path{fill:var(--accent); stroke:var(--bg-2); stroke-width:2; animation:hexfade 4s ease-in-out infinite alternate}
-.flow{fill:none; stroke:var(--ink); stroke-width:2.5; stroke-linecap:round; stroke-dasharray:6 8; animation:dash 1.6s linear infinite}
-.flow.f2{stroke:var(--accent); animation-duration:2.2s}
-.bub{fill:var(--bg); stroke:var(--line)} .bub.me{fill:var(--ink); stroke:none}
-.typing{fill:var(--bg); animation:typ 1.2s infinite} .typing.t2{animation-delay:.2s} .typing.t3{animation-delay:.4s}
-.die{fill:var(--bg); stroke:var(--ink); stroke-width:2}
-.dg{transform-box:fill-box; transform-origin:center; animation:roll 3.4s ease-in-out infinite}
-.dg.d2{animation-delay:.6s}
-.pip{fill:var(--ink)} .pip.p2{fill:var(--accent)}
-.obs,.fc{fill:none; stroke:var(--ink); stroke-width:2.5; stroke-linejoin:round}
-.fc{stroke:var(--accent); stroke-dasharray:6 6; animation:dash 1.4s linear infinite}
-.band{fill:var(--accent); opacity:.18}
-.sun{fill:var(--accent); transform-box:fill-box; transform-origin:center; animation:pulse 3s ease-in-out infinite}
-.track{stroke:var(--line); stroke-width:4; stroke-linecap:round}
-.knob{fill:var(--accent); transform-box:fill-box; animation:slide 3.4s ease-in-out infinite alternate}
-.knob.k2{fill:var(--ink); animation-duration:4.2s; animation-direction:alternate-reverse}
-.res-bg{fill:var(--bg)} .res{fill:var(--accent); transform-box:fill-box; transform-origin:left; animation:res 3.4s ease-in-out infinite alternate}
-@keyframes dash{to{stroke-dashoffset:-28}}
-@keyframes hexfade{from{opacity:.25} to{opacity:.85}}
-@keyframes typ{0%,60%,100%{opacity:.3} 30%{opacity:1}}
-@keyframes roll{0%,65%,100%{transform:rotate(0)} 78%{transform:rotate(-14deg)} 90%{transform:rotate(8deg)}}
-@keyframes pulse{50%{transform:scale(1.15)}}
-@keyframes slide{to{transform:translateX(90px)}}
-@keyframes res{from{transform:scaleX(.35)} to{transform:scaleX(.9)}}
-
-/* parcours */
-.path{position:relative; margin-top:48px; padding-left:44px}
-.path::before{content:""; position:absolute; left:9px; top:8px; bottom:8px; width:1px; background:var(--line)}
-.path .progress{position:absolute; left:9px; top:8px; width:1px; height:0; background:var(--accent); transition:height .2s linear}
-.step{position:relative; padding:0 0 46px}
-.step:last-child{padding-bottom:0}
-.step::before{content:""; position:absolute; left:-41px; top:9px; width:13px; height:13px; border-radius:50%; background:var(--bg);
-  border:2px solid var(--accent)}
-.step.now::before{background:var(--accent); box-shadow:0 0 0 6px var(--accent-soft)}
-.step .when{font-size:13.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
-.step h3{font-family:var(--serif); font-weight:400; font-size:31px; line-height:1.15; margin:6px 0 0}
-.step p{margin:8px 0 0; color:var(--ink-2); max-width:62ch}
-.step a{color:var(--accent); text-underline-offset:3px}
-
-/* recherche */
-.seek{margin-top:44px; padding:52px 48px; border-radius:28px; background:var(--ink); color:var(--bg); position:relative; overflow:hidden}
-.seek h3{font-family:var(--serif); font-weight:400; font-size:clamp(32px,4.4vw,48px); line-height:1.1; margin:0; max-width:20ch}
-.seek h3 em{color:var(--accent)}
-.seek p{margin:18px 0 0; max-width:54ch; opacity:.8}
-.seek .pills{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
-.seek .pills span{border:1px solid color-mix(in srgb, var(--bg) 35%, transparent); border-radius:999px; padding:7px 15px; font-size:14.5px}
-.seek .ring{position:absolute; right:-80px; top:-80px; width:300px; height:300px; border-radius:50%; border:1px solid var(--accent); opacity:.5}
-.seek .ring.b{right:-30px; top:-30px; width:200px; height:200px; opacity:.3}
-
-.outside{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px}
-.out{padding:28px; border-top:2px solid var(--accent)}
-.out h3{font-family:var(--serif); font-weight:400; font-size:28px; line-height:1.15; margin:0}
-.out p{margin:10px 0 0; color:var(--ink-2); font-size:16.5px}
-
-/* contact */
-.contact{padding:140px 0 120px; text-align:center}
-.contact h2{max-width:16ch; margin-left:auto; margin-right:auto}
-.contact .cta{justify-content:center}
-footer{border-top:1px solid var(--line); padding:26px 0; font-size:14px; color:var(--muted)}
-footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
-
-/* apparitions */
-.reveal{opacity:0; transform:translateY(24px); transition:opacity .9s ease, transform .9s cubic-bezier(.2,.75,.2,1)}
-.reveal.on{opacity:1; transform:none}
-.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
-@keyframes drip{0%{transform:scaleY(0); transform-origin:top} 50%{transform:scaleY(1); transform-origin:top}
-  51%{transform-origin:bottom} 100%{transform:scaleY(0); transform-origin:bottom}}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important; transition:none!important}
-  .reveal{opacity:1; transform:none}
+@media (max-width:560px){
+  body{font-size:18px}
+  main{padding-top:44px}
+  .dated li{grid-template-columns:1fr; gap:0}
 }
-
-@media (max-width:820px){
-  .nav nav a{display:none}
-  section{padding-top:88px}
-  .about,.loves,.outside,.projects{grid-template-columns:1fr}
-  .proj.big{flex-direction:column}
-  .proj.big .vis{aspect-ratio:16/9; min-height:0}
-  .proj.big h3{font-size:30px}
-  .about{gap:28px}
-  .seek{padding:40px 26px}
-}
-@media (max-width:480px){
-  .wrap{padding:0 18px}
-  body{font-size:17px}
-  .facts{grid-template-columns:1fr}
-  .fact + .fact{border-left:0; border-top:1px solid var(--line)}
-  .path{padding-left:36px}
-  .step::before{left:-33px}
+@media print{
+  body{background:#fff; font-size:12pt}
+  main{padding:0}
+  a{color:inherit}
 }
 </style>
 </head>
 <body>
+<main>
 
-<header class="nav" id="nav">
-  <div class="wrap">
-    <a class="me" href="#top">Florient Marchal</a>
-    <nav>
-      <a href="#moi">À propos</a>
-      <a href="#projets">Projets</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#cherche">Ce que je cherche</a>
-      <a href="#contact">Contact</a>
-      <button class="theme" id="theme" aria-label="Changer de thème">◐</button>
-    </nav>
-  </div>
+<header>
+  <h1>Florient Marchal</h1>
+  <p class="sub">Étudiant en master MIASHS à Montpellier</p>
+  <p class="links">
+    <a href="mailto:florient.marchal@hotmail.com">florient.marchal@hotmail.com</a>
+    <a href="https://www.linkedin.com/in/florient-marchal-7247a92b0">LinkedIn</a>
+    <a href="https://github.com/FlorientMarchal">GitHub</a>
+  </p>
 </header>
 
-<div class="hero" id="top">
-  <canvas id="dots" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <p class="hello reveal">Bonjour, je suis <b>Florient</b> 👋</p>
-    <h1 class="reveal d1">Je transforme des données en <em>outils utiles.</em></h1>
-    <p class="lead reveal d2">Étudiant en Master MIASHS à Montpellier, je travaille à la croisée des données, de la visualisation et de l'intelligence artificielle.</p>
-    <div class="cta reveal d3">
-      <a class="btn main" href="#projets">Voir mes projets</a>
-      <a class="btn" href="#contact">Me contacter</a>
-    </div>
-  </div>
-  <a class="scroll" href="#moi">Découvrir<i></i></a>
-</div>
+<h2>Bonjour</h2>
+<p>Je m'appelle Florient. J'ai fait une licence MIASHS (mathématiques et informatique appliquées aux sciences humaines et sociales) à l'université Paul-Valéry, et j'y suis maintenant en première année de master.</p>
+<p>Ce qui m'intéresse, c'est de travailler avec des données du début à la fin : les récupérer, les nettoyer, les analyser, puis construire quelque chose que d'autres peuvent utiliser, que ce soit une carte, un tableau de bord ou une petite application. Je m'intéresse aussi de plus en plus à l'IA.</p>
+<p>Je suis luxembourgeois et j'étudie à Montpellier.</p>
 
-<main>
-  <section id="moi">
-    <div class="wrap">
-      <div class="about">
-        <div class="reveal">
-          <div class="label">À propos</div>
-          <h2>Des chiffres bruts à <em>quelque chose qu'on comprend.</em></h2>
-        </div>
-        <div class="reveal d1">
-          <p>Ce qui me plaît, c'est le chemin complet : partir de données brutes, les rendre fiables, en tirer quelque chose, puis le présenter de façon à ce que n'importe qui puisse s'en servir.</p>
-          <p>J'ai découvert ce goût en licence MIASHS, une formation qui mêle mathématiques, informatique et sciences humaines. Depuis, je multiplie les projets concrets, en stage, en équipe ou de mon côté, avec toujours la même idée : un bon outil est un outil qu'on a envie d'utiliser.</p>
-          <p>Luxembourgeois, j'étudie à Montpellier, et je peux travailler aussi bien à Montpellier qu'au Luxembourg.</p>
-        </div>
-      </div>
-      <div class="facts reveal">
-        <div class="fact"><b>4</b><span>langues parlées</span></div>
-        <div class="fact"><b>6 ans</b><span>de pompier volontaire</span></div>
-        <a class="fact" href="https://martchal.fr"><b>1</b><span>micro-entreprise créée ↗</span></a>
-      </div>
-    </div>
-  </section>
+<h2>Ce que je cherche</h2>
+<p><mark>Un stage ou une alternance dans la data, à partir de janvier 2027</mark>, à Montpellier ou au Luxembourg, en rythme alterné (deux semaines en entreprise, deux semaines à l'université). Si mon profil vous intéresse, <a href="mailto:florient.marchal@hotmail.com">écrivez-moi</a>.</p>
 
-  <section>
-    <div class="wrap">
-      <div class="reveal"><div class="label">Ce que j'aime faire</div>
-        <h2>Quatre facettes, <em>un même fil.</em></h2></div>
-      <div class="loves">
-        <div class="love reveal">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
-          <h3>Rendre les données fiables</h3>
-          <p>Nettoyer, organiser, structurer : le travail discret sans lequel aucune analyse ne tient.</p>
-        </div>
-        <div class="love reveal d1">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 20h18M6 16v-5M11 16V6M16 16v-8M21 16v-3"/></svg></div>
-          <h3>Les rendre lisibles</h3>
-          <p>Cartes, graphiques, tableaux de bord : montrer l'essentiel d'un coup d'œil.</p>
-        </div>
-        <div class="love reveal">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><path d="M7 6.5l3 4.5M7 17.5l3-4.5M14 12h3"/></svg></div>
-          <h3>Leur donner de l'intelligence</h3>
-          <p>Statistiques, machine learning et IA : comprendre, prévoir et assister.</p>
-        </div>
-        <div class="love reveal d1">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M9 9l-2 2 2 2M15 9l2 2-2 2"/></svg></div>
-          <h3>Construire l'outil</h3>
-          <p>Des applications web pensées pour leurs utilisateurs, du besoin à la mise en ligne.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2>Projets</h2>
+<ul class="dated">
+  <li><span class="y">2026</span><span><b>Carte d'exploration de données scientifiques</b>, pendant mon stage au LIRMM (CNRS / Université de Montpellier).
+    <span class="d">Une application web qui permet à des écologues de parcourir des centaines de milliers d'observations de méduses en Méditerranée et de voir d'où elles peuvent venir.</span></span></li>
+  <li><span class="y">2026</span><span><b><a href="https://github.com/Master-MIASHS/M1AgenticCoding">Casino Fantôme</a></b>, projet de toute la promo de master.
+    <span class="d">Un jeu de casino fictif dont le code est écrit par des agents IA, que nous pilotons et relisons. Mon groupe s'occupait de l'application elle-même : écrans, navigation, intégration des jeux.</span></span></li>
+  <li><span class="y">2026</span><span><b><a href="https://github.com/FlorientMarchal/PairIA">PairIA</a></b>, pendant mon stage chez Dell Technologies.
+    <span class="d">Une boutique en ligne avec un assistant IA qui tourne entièrement en local, sans service extérieur.</span></span></li>
+  <li><span class="y">2026</span><span><b><a href="https://github.com/BonjourP166/Future-Agriculteur">Calendrier agricole</a></b>, projet de licence à quatre.
+    <span class="d">Un site qui conseille les agriculteurs débutants sur quoi planter, à partir de prévisions météo et de modèles de machine learning.</span></span></li>
+  <li><span class="y">2025</span><span><b><a href="https://github.com/Nina253/Orga">Orga+</a></b>, projet de licence à quatre.
+    <span class="d">Une plateforme pour aider les étudiants à s'organiser, avec un petit simulateur basé sur une régression linéaire.</span></span></li>
+</ul>
+<p>J'ai aussi fait pour moi <a href="https://florientmarchal.github.io/revision/">un site pour réviser mes cours de master</a>.</p>
 
-  <section id="projets">
-    <div class="wrap">
-      <div class="reveal"><div class="label">Projets</div>
-        <h2>Quelques choses <em>que j'ai construites.</em></h2></div>
-      <div class="projects">
+<h2>Parcours</h2>
+<ul class="dated">
+  <li><span class="y">2026 –</span><span><b>Master MIASHS</b>, Université Paul-Valéry Montpellier 3
+    <span class="d">En parallèle, stage en rythme alterné au LIRMM jusqu'en décembre 2026.</span></span></li>
+  <li><span class="y">2026</span><span><b>Stage chez Dell Technologies</b>, Montpellier
+    <span class="d">Développement web et IA, de mai à juillet.</span></span></li>
+  <li><span class="y">2024 – 2026</span><span><b>Licence MIASHS</b>, Université Paul-Valéry Montpellier 3
+    <span class="d">Obtenue avec la mention bien.</span></span></li>
+  <li><span class="y">2022 – 2023</span><span><b>PASS</b> (parcours d'accès spécifique santé), Université de Montpellier</span></li>
+</ul>
 
-        <article class="proj big reveal">
-          <div class="vis">
-            <svg viewBox="0 0 320 180" aria-hidden="true">
-              <g class="hexes"></g>
-              <path class="flow" d="M40 140 C 90 60, 170 150, 230 70 S 290 40, 300 30"/>
-              <path class="flow f2" d="M30 60 C 90 90, 150 30, 210 110 S 280 140, 300 120"/>
-            </svg>
-          </div>
-          <div class="txt">
-            <div class="meta">Stage · LIRMM (CNRS) · 2026</div>
-            <h3>Une carte pour explorer des données scientifiques</h3>
-            <p>Une application qui permet à des écologues d'explorer des centaines de milliers d'observations de méduses en Méditerranée, et de visualiser d'où elles peuvent venir.</p>
-            <span class="tagline">Données · Cartographie · Visualisation</span>
-          </div>
-        </article>
+<h2>À côté</h2>
+<p>Depuis février 2026, j'ai une petite entreprise de paniers cousus main, <a href="https://martchal.fr">MArt'chal</a>. Je m'occupe de tout, de la fabrication au site web en passant par la compta.</p>
+<p>Je suis pompier volontaire depuis six ans. J'ai aussi travaillé plusieurs étés, comme serveur et comme agent de tri.</p>
+<p>Je parle français et luxembourgeois, allemand couramment, et anglais.</p>
 
-        <article class="proj reveal">
-          <div class="vis">
-            <svg viewBox="0 0 320 180" aria-hidden="true">
-              <rect class="bub" x="40" y="40" width="150" height="46" rx="16"/>
-              <rect class="bub me" x="130" y="100" width="150" height="46" rx="16"/>
-              <circle class="typing" cx="185" cy="123" r="5"/><circle class="typing t2" cx="205" cy="123" r="5"/><circle class="typing t3" cx="225" cy="123" r="5"/>
-            </svg>
-          </div>
-          <div class="txt">
-            <div class="meta">Stage · Dell Technologies · 2026</div>
-            <h3>PairIA, un assistant IA 100 % local</h3>
-            <p>Un assistant conversationnel pour une boutique en ligne, qui conseille les clients et aide à gérer le site, sans dépendre d'aucun service externe.</p>
-            <span class="tagline">IA · LLM · Web</span>
-            <a class="go" href="https://github.com/FlorientMarchal/PairIA">Voir le projet ↗</a>
-          </div>
-        </article>
-
-        <article class="proj reveal d1">
-          <div class="vis">
-            <svg viewBox="0 0 320 180" aria-hidden="true">
-              <g class="dg"><rect class="die" x="70" y="50" width="70" height="70" rx="14"/>
-                <circle class="pip" cx="92" cy="72" r="6"/><circle class="pip" cx="118" cy="98" r="6"/><circle class="pip" cx="105" cy="85" r="6"/></g>
-              <g class="dg d2"><rect class="die" x="170" y="70" width="70" height="70" rx="14"/>
-                <circle class="pip p2" cx="192" cy="92" r="6"/><circle class="pip p2" cx="218" cy="118" r="6"/></g>
-            </svg>
-          </div>
-          <div class="txt">
-            <div class="meta">Master · Projet de promo · 2026</div>
-            <h3>Casino Fantôme, codé par des agents IA</h3>
-            <p>Un jeu de casino fictif entièrement écrit par des agents IA que la promo pilote et relit. J'ai pris en charge une partie de l'application avec mon groupe.</p>
-            <span class="tagline">Agents IA · Travail en équipe</span>
-            <a class="go" href="https://github.com/Master-MIASHS/M1AgenticCoding">Voir le projet ↗</a>
-          </div>
-        </article>
-
-        <article class="proj reveal">
-          <div class="vis">
-            <svg viewBox="0 0 320 180" aria-hidden="true">
-              <path class="obs" d="M30 140 L60 128 L90 132 L120 110 L150 104 L180 90"/>
-              <path class="band" d="M180 90 L220 76 L260 66 L300 52 L300 92 L260 98 L220 100 L180 90Z"/>
-              <path class="fc" d="M180 90 L220 88 L260 82 L300 72"/>
-              <circle class="sun" cx="270" cy="40" r="14"/>
-            </svg>
-          </div>
-          <div class="txt">
-            <div class="meta">Licence · Projet d'équipe · 2026</div>
-            <h3>Un calendrier agricole intelligent</h3>
-            <p>Un site qui aide les agriculteurs débutants à savoir quoi planter, en s'appuyant sur des prévisions météo et du machine learning.</p>
-            <span class="tagline">Machine learning · Prévision</span>
-            <a class="go" href="https://github.com/BonjourP166/Future-Agriculteur">Voir le projet ↗</a>
-          </div>
-        </article>
-
-        <article class="proj reveal d1">
-          <div class="vis">
-            <svg viewBox="0 0 320 180" aria-hidden="true">
-              <line class="track" x1="60" y1="55" x2="260" y2="55"/><circle class="knob k1" cx="110" cy="55" r="10"/>
-              <line class="track" x1="60" y1="95" x2="260" y2="95"/><circle class="knob k2" cx="160" cy="95" r="10"/>
-              <rect class="res-bg" x="60" y="125" width="200" height="18" rx="9"/><rect class="res" x="60" y="125" width="200" height="18" rx="9"/>
-            </svg>
-          </div>
-          <div class="txt">
-            <div class="meta">Licence · Projet d'équipe · 2025</div>
-            <h3>Orga+, pour mieux s'organiser</h3>
-            <p>Une plateforme qui aide les étudiants à mieux s'organiser, avec un simulateur qui estime l'effet de leurs habitudes sur leurs résultats.</p>
-            <span class="tagline">Statistiques · Web · Agile</span>
-            <a class="go" href="https://github.com/Nina253/Orga">Voir le projet ↗</a>
-          </div>
-        </article>
-
-      </div>
-      <p class="more reveal">Et aussi : <a href="https://florientmarchal.github.io/revision/">mon site de révision du M1</a>, un projet personnel pour réviser avec des flashcards, des QCM et du code qui s'exécute dans le navigateur.</p>
-    </div>
-  </section>
-
-  <section id="parcours">
-    <div class="wrap">
-      <div class="reveal"><div class="label">Parcours</div>
-        <h2>Ce que j'ai <em>fait jusqu'ici.</em></h2></div>
-      <div class="path" id="path">
-        <i class="progress" id="progress"></i>
-        <div class="step now reveal">
-          <div class="when">2026 · Aujourd'hui</div>
-          <h3>Master MIASHS et stage au LIRMM</h3>
-          <p>En stage à rythme alterné dans un laboratoire de recherche (CNRS / Université de Montpellier), je conçois une carte interactive qui aide des scientifiques à explorer leurs données. En parallèle, au master, je travaille sur la programmation avec des agents IA et sur un projet de recherche en bio-informatique.</p>
-        </div>
-        <div class="step reveal">
-          <div class="when">2026 · Stage</div>
-          <h3>Dell Technologies</h3>
-          <p>J'ai participé à la création d'un assistant IA qui fonctionne entièrement en local, intégré à un site de vente en ligne. <a href="https://github.com/FlorientMarchal/PairIA">Voir le projet</a></p>
-        </div>
-        <div class="step reveal">
-          <div class="when">2026 · Entrepreneuriat</div>
-          <h3>Création de MArt'chal</h3>
-          <p>J'ai lancé ma micro-entreprise d'articles textiles : site web, production, comptabilité et logistique, tout de A à Z. <a href="https://martchal.fr">Voir martchal.fr</a></p>
-        </div>
-        <div class="step reveal">
-          <div class="when">2024 – 2026 · Licence</div>
-          <h3>Licence MIASHS, mention Bien</h3>
-          <p>Trois ans pour apprendre à faire parler les données, ponctués de projets d'équipe : un outil d'aide à la décision pour les agriculteurs, une plateforme d'organisation pour les étudiants, une étude statistique sur le développement des pays.</p>
-        </div>
-        <div class="step reveal">
-          <div class="when">2022 – 2023</div>
-          <h3>Parcours santé (PASS)</h3>
-          <p>Une première année exigeante qui m'a appris la rigueur et la méthode, avant de choisir la voie des données.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="cherche">
-    <div class="wrap">
-      <div class="seek reveal">
-        <i class="ring"></i><i class="ring b"></i>
-        <div class="label">Ce que je cherche</div>
-        <h3 style="margin-top:14px">Un stage ou une alternance en data, <em>à Montpellier ou au Luxembourg.</em></h3>
-        <p>À partir de janvier 2027, je souhaite rejoindre une équipe data pour mettre mes compétences au service de vrais projets, et continuer à apprendre à leurs côtés.</p>
-        <div class="pills"><span>Dès janvier 2027</span><span>Montpellier ou Luxembourg</span><span>Stage ou alternance</span><span>Rythme alterné 2 semaines / 2 semaines</span><span>Data management · Data intelligence</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="reveal"><div class="label">En dehors des études</div>
-        <h2>Ce qui me <em>construit aussi.</em></h2></div>
-      <div class="outside">
-        <div class="out reveal"><h3>Pompier volontaire</h3><p>Six ans de secours à personne : garder son calme, agir vite et travailler en équipe.</p></div>
-        <div class="out reveal d1"><h3>Quatre langues</h3><p>Français et luxembourgeois au quotidien, allemand et anglais pour le reste.</p></div>
-        <div class="out reveal d2"><h3>Le terrain</h3><p>Plusieurs étés de jobs saisonniers, au service et au tri : le contact client et la rigueur au quotidien.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="label reveal">Contact</div>
-      <h2 class="reveal d1">Envie d'échanger ? <em>Écrivez-moi.</em></h2>
-      <div class="cta reveal d2">
-        <a class="btn main" href="mailto:florient.marchal@hotmail.com">florient.marchal@hotmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/florient-marchal-7247a92b0">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/FlorientMarchal">GitHub ↗</a>
-      </div>
-    </div>
-  </section>
 </main>
-
-<footer>
-  <div class="wrap"><span>© 2026 Florient Marchal</span><span>Montpellier · Luxembourg</span></div>
-</footer>
-
-<script>
-// thème clair / sombre, mémorisé pour ce visiteur
-const root = document.documentElement;
-try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
-document.getElementById("theme").addEventListener("click", () => {
-  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
-});
-
-// barre de navigation opaque après le haut de page
-const nav = document.getElementById("nav");
-const onScroll = () => {
-  nav.classList.toggle("solid", scrollY > 40);
-  // la ligne du parcours se remplit au fil du défilement
-  const path = document.getElementById("path"), r = path.getBoundingClientRect();
-  const p = Math.min(1, Math.max(0, (innerHeight * .65 - r.top) / r.height));
-  document.getElementById("progress").style.height = (p * (r.height - 16)) + "px";
-};
-addEventListener("scroll", onScroll, { passive: true }); onScroll();
-
-// carte du projet LIRMM : une grille d'hexagones qui s'allument tour à tour
-const hexes = document.querySelector(".hexes");
-for (let r = 0; r < 5; r++) for (let c = 0; c < 9; c++) {
-  const R = 17, cx = 30 + c * R * 1.75 + (r % 2) * R * .875, cy = 24 + r * R * 1.52;
-  if (Math.random() < .3) continue;
-  const pts = Array.from({ length: 6 }, (_, k) => {
-    const a = Math.PI / 6 + k * Math.PI / 3;
-    return `${(cx + R * Math.cos(a)).toFixed(1)},${(cy + R * Math.sin(a)).toFixed(1)}`;
-  }).join(" ");
-  const h = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  h.setAttribute("d", "M" + pts + "Z");
-  h.style.animationDelay = (Math.random() * 4).toFixed(2) + "s";
-  hexes.appendChild(h);
-}
-
-// apparitions au défilement
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), { threshold: .15 });
-document.querySelectorAll(".reveal").forEach(e => io.observe(e));
-
-// accueil : des points de données qui dérivent et se relient, attirés par la souris
-const cv = document.getElementById("dots"), ctx = cv.getContext("2d");
-const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-let W, H, pts = [], mouse = { x: -999, y: -999 };
-function size() {
-  const dpr = devicePixelRatio || 1;
-  W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const n = Math.round(Math.min(90, W * H / 14000));
-  pts = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 }));
-}
-function frame() {
-  const css = getComputedStyle(root), accent = css.getPropertyValue("--accent").trim(), ink = css.getPropertyValue("--muted").trim();
-  ctx.clearRect(0, 0, W, H);
-  for (const p of pts) {
-    if (!still) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; }
-  }
-  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
-    const a = pts[i], b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-    if (d < 130) { ctx.strokeStyle = ink; ctx.globalAlpha = (1 - d / 130) * .35; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
-  }
-  for (const p of pts) {
-    const near = Math.hypot(p.x - mouse.x, p.y - mouse.y) < 160;
-    if (near) { ctx.strokeStyle = accent; ctx.globalAlpha = .5; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
-    ctx.globalAlpha = near ? .95 : .55; ctx.fillStyle = near ? accent : ink;
-    ctx.beginPath(); ctx.arc(p.x, p.y, near ? 3.2 : 2.2, 0, Math.PI * 2); ctx.fill();
-  }
-  ctx.globalAlpha = 1;
-  if (!still) requestAnimationFrame(frame);
-}
-addEventListener("resize", size);
-cv.parentElement.addEventListener("mousemove", e => { const r = cv.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; });
-cv.parentElement.addEventListener("mouseleave", () => mouse = { x: -999, y: -999 });
-size(); frame();
-</script>
+<footer><p>Mis à jour en novembre 2026.</p></footer>
 </body>
 </html>
